@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		9108EE6C15AD5A2400F10B62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9108EE6B15AD5A2400F10B62 /* Foundation.framework */; };
-		9108EE7215AD5A2400F10B62 /* LSKToolkit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9108EE7115AD5A2400F10B62 /* LSKToolkit.m */; };
 		9108EE7A15AD5A2400F10B62 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9108EE7915AD5A2400F10B62 /* SenTestingKit.framework */; };
 		9108EE7C15AD5A2400F10B62 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9108EE7B15AD5A2400F10B62 /* UIKit.framework */; };
 		9108EE7D15AD5A2400F10B62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9108EE6B15AD5A2400F10B62 /* Foundation.framework */; };
@@ -33,7 +32,6 @@
 		9108EE6B15AD5A2400F10B62 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9108EE6F15AD5A2400F10B62 /* LSKToolkit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LSKToolkit-Prefix.pch"; sourceTree = "<group>"; };
 		9108EE7015AD5A2400F10B62 /* LSKToolkit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSKToolkit.h; sourceTree = "<group>"; };
-		9108EE7115AD5A2400F10B62 /* LSKToolkit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSKToolkit.m; sourceTree = "<group>"; };
 		9108EE7815AD5A2400F10B62 /* LSKToolkitTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LSKToolkitTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9108EE7915AD5A2400F10B62 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		9108EE7B15AD5A2400F10B62 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -102,7 +100,6 @@
 			children = (
 				91F530EE15B69DCA00BC9C3A /* Categories */,
 				9108EE7015AD5A2400F10B62 /* LSKToolkit.h */,
-				9108EE7115AD5A2400F10B62 /* LSKToolkit.m */,
 				9108EE6E15AD5A2400F10B62 /* Supporting Files */,
 			);
 			path = LSKToolkit;
@@ -251,7 +248,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9108EE7215AD5A2400F10B62 /* LSKToolkit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
