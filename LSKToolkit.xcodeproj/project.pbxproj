@@ -107,19 +107,28 @@
 		91929A4E15B7F67000432FE9 /* EGOImageURLSafeView.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A3115B7F67000432FE9 /* EGOImageURLSafeView.h */; };
 		91929A4F15B7F67000432FE9 /* EGOImageURLSafeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A3215B7F67000432FE9 /* EGOImageURLSafeView.m */; };
 		91929A5015B7F67000432FE9 /* EGOImageURLSafeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A3215B7F67000432FE9 /* EGOImageURLSafeView.m */; };
-		91929A5C15B8010300432FE9 /* EGORefreshTableHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A5315B8010300432FE9 /* EGORefreshTableHeaderView.h */; };
-		91929A5D15B8010300432FE9 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A5415B8010300432FE9 /* EGORefreshTableHeaderView.m */; };
-		91929A5E15B8010300432FE9 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A5415B8010300432FE9 /* EGORefreshTableHeaderView.m */; };
-		91929A5F15B8010300432FE9 /* EGORefreshTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A5515B8010300432FE9 /* EGORefreshTableViewController.h */; };
-		91929A6015B8010300432FE9 /* EGORefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A5615B8010300432FE9 /* EGORefreshTableViewController.m */; };
-		91929A6115B8010300432FE9 /* EGORefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A5615B8010300432FE9 /* EGORefreshTableViewController.m */; };
-		91929A6215B8010300432FE9 /* LSKCommonPullRefreshTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A5715B8010300432FE9 /* LSKCommonPullRefreshTableViewController.h */; };
-		91929A6315B8010300432FE9 /* LSKCommonPullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A5815B8010300432FE9 /* LSKCommonPullRefreshTableViewController.m */; };
-		91929A6415B8010300432FE9 /* LSKCommonPullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A5815B8010300432FE9 /* LSKCommonPullRefreshTableViewController.m */; };
 		91929A6515B8010300432FE9 /* LSKZoomPictureViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A5915B8010300432FE9 /* LSKZoomPictureViewController.h */; };
 		91929A6615B8010300432FE9 /* LSKZoomPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A5A15B8010300432FE9 /* LSKZoomPictureViewController.m */; };
 		91929A6715B8010300432FE9 /* LSKZoomPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A5A15B8010300432FE9 /* LSKZoomPictureViewController.m */; };
 		91929A6815B8010300432FE9 /* LSKZoomPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91929A5B15B8010300432FE9 /* LSKZoomPictureViewController.xib */; };
+		91929A7615B80D3400432FE9 /* CustomTabBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A6F15B80D3400432FE9 /* CustomTabBar.h */; };
+		91929A7715B80D3400432FE9 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A7015B80D3400432FE9 /* CustomTabBar.m */; };
+		91929A7815B80D3400432FE9 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A7015B80D3400432FE9 /* CustomTabBar.m */; };
+		91929A8115B80D9600432FE9 /* LSKCustomTabBarViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A7F15B80D9600432FE9 /* LSKCustomTabBarViewController.h */; };
+		91929A8215B80D9600432FE9 /* LSKCustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A8015B80D9600432FE9 /* LSKCustomTabBarViewController.m */; };
+		91929A8315B80D9600432FE9 /* LSKCustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A8015B80D9600432FE9 /* LSKCustomTabBarViewController.m */; };
+		91929A8E15B80DB400432FE9 /* LSKSegmentManagingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A8515B80DB400432FE9 /* LSKSegmentManagingViewController.h */; };
+		91929A8F15B80DB400432FE9 /* LSKSegmentManagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A8615B80DB400432FE9 /* LSKSegmentManagingViewController.m */; };
+		91929A9015B80DB400432FE9 /* LSKSegmentManagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A8615B80DB400432FE9 /* LSKSegmentManagingViewController.m */; };
+		91929A9115B80DB400432FE9 /* EGORefreshTableHeaderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A8815B80DB400432FE9 /* EGORefreshTableHeaderView.h */; };
+		91929A9215B80DB400432FE9 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A8915B80DB400432FE9 /* EGORefreshTableHeaderView.m */; };
+		91929A9315B80DB400432FE9 /* EGORefreshTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A8915B80DB400432FE9 /* EGORefreshTableHeaderView.m */; };
+		91929A9415B80DB400432FE9 /* EGORefreshTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A8A15B80DB400432FE9 /* EGORefreshTableViewController.h */; };
+		91929A9515B80DB400432FE9 /* EGORefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A8B15B80DB400432FE9 /* EGORefreshTableViewController.m */; };
+		91929A9615B80DB400432FE9 /* EGORefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A8B15B80DB400432FE9 /* EGORefreshTableViewController.m */; };
+		91929A9715B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A8C15B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.h */; };
+		91929A9815B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A8D15B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m */; };
+		91929A9915B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A8D15B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m */; };
 		99EC99BF5DBE4F4189FA2543 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0CAB215C5E431681E7AF55 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -213,15 +222,21 @@
 		91929A3015B7F67000432FE9 /* EGOImageURLSafeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageURLSafeButton.m; sourceTree = "<group>"; };
 		91929A3115B7F67000432FE9 /* EGOImageURLSafeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGOImageURLSafeView.h; sourceTree = "<group>"; };
 		91929A3215B7F67000432FE9 /* EGOImageURLSafeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageURLSafeView.m; sourceTree = "<group>"; };
-		91929A5315B8010300432FE9 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
-		91929A5415B8010300432FE9 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
-		91929A5515B8010300432FE9 /* EGORefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableViewController.h; sourceTree = "<group>"; };
-		91929A5615B8010300432FE9 /* EGORefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableViewController.m; sourceTree = "<group>"; };
-		91929A5715B8010300432FE9 /* LSKCommonPullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKCommonPullRefreshTableViewController.h; sourceTree = "<group>"; };
-		91929A5815B8010300432FE9 /* LSKCommonPullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKCommonPullRefreshTableViewController.m; sourceTree = "<group>"; };
 		91929A5915B8010300432FE9 /* LSKZoomPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKZoomPictureViewController.h; sourceTree = "<group>"; };
 		91929A5A15B8010300432FE9 /* LSKZoomPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKZoomPictureViewController.m; sourceTree = "<group>"; };
 		91929A5B15B8010300432FE9 /* LSKZoomPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSKZoomPictureViewController.xib; sourceTree = "<group>"; };
+		91929A6F15B80D3400432FE9 /* CustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBar.h; sourceTree = "<group>"; };
+		91929A7015B80D3400432FE9 /* CustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBar.m; sourceTree = "<group>"; };
+		91929A7F15B80D9600432FE9 /* LSKCustomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKCustomTabBarViewController.h; sourceTree = "<group>"; };
+		91929A8015B80D9600432FE9 /* LSKCustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKCustomTabBarViewController.m; sourceTree = "<group>"; };
+		91929A8515B80DB400432FE9 /* LSKSegmentManagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKSegmentManagingViewController.h; sourceTree = "<group>"; };
+		91929A8615B80DB400432FE9 /* LSKSegmentManagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKSegmentManagingViewController.m; sourceTree = "<group>"; };
+		91929A8815B80DB400432FE9 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
+		91929A8915B80DB400432FE9 /* EGORefreshTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableHeaderView.m; sourceTree = "<group>"; };
+		91929A8A15B80DB400432FE9 /* EGORefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableViewController.h; sourceTree = "<group>"; };
+		91929A8B15B80DB400432FE9 /* EGORefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableViewController.m; sourceTree = "<group>"; };
+		91929A8C15B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKCommonPullRefreshTableViewController.h; sourceTree = "<group>"; };
+		91929A8D15B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKCommonPullRefreshTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -443,7 +458,9 @@
 		91929A5115B8010100432FE9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				91929A5215B8010300432FE9 /* LSKPullRefresh */,
+				91929A8415B80DB400432FE9 /* SegmentsSwitch */,
+				91929A8715B80DB400432FE9 /* PullRefresh */,
+				91929A6E15B80D3400432FE9 /* customTab */,
 				91929A5915B8010300432FE9 /* LSKZoomPictureViewController.h */,
 				91929A5A15B8010300432FE9 /* LSKZoomPictureViewController.m */,
 				91929A5B15B8010300432FE9 /* LSKZoomPictureViewController.xib */,
@@ -451,17 +468,37 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		91929A5215B8010300432FE9 /* LSKPullRefresh */ = {
+		91929A6E15B80D3400432FE9 /* customTab */ = {
 			isa = PBXGroup;
 			children = (
-				91929A5315B8010300432FE9 /* EGORefreshTableHeaderView.h */,
-				91929A5415B8010300432FE9 /* EGORefreshTableHeaderView.m */,
-				91929A5515B8010300432FE9 /* EGORefreshTableViewController.h */,
-				91929A5615B8010300432FE9 /* EGORefreshTableViewController.m */,
-				91929A5715B8010300432FE9 /* LSKCommonPullRefreshTableViewController.h */,
-				91929A5815B8010300432FE9 /* LSKCommonPullRefreshTableViewController.m */,
+				91929A6F15B80D3400432FE9 /* CustomTabBar.h */,
+				91929A7015B80D3400432FE9 /* CustomTabBar.m */,
+				91929A7F15B80D9600432FE9 /* LSKCustomTabBarViewController.h */,
+				91929A8015B80D9600432FE9 /* LSKCustomTabBarViewController.m */,
 			);
-			path = LSKPullRefresh;
+			path = customTab;
+			sourceTree = "<group>";
+		};
+		91929A8415B80DB400432FE9 /* SegmentsSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				91929A8515B80DB400432FE9 /* LSKSegmentManagingViewController.h */,
+				91929A8615B80DB400432FE9 /* LSKSegmentManagingViewController.m */,
+			);
+			path = SegmentsSwitch;
+			sourceTree = "<group>";
+		};
+		91929A8715B80DB400432FE9 /* PullRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				91929A8815B80DB400432FE9 /* EGORefreshTableHeaderView.h */,
+				91929A8915B80DB400432FE9 /* EGORefreshTableHeaderView.m */,
+				91929A8A15B80DB400432FE9 /* EGORefreshTableViewController.h */,
+				91929A8B15B80DB400432FE9 /* EGORefreshTableViewController.m */,
+				91929A8C15B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.h */,
+				91929A8D15B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m */,
+			);
+			path = PullRefresh;
 			sourceTree = "<group>";
 		};
 		91F530EE15B69DCA00BC9C3A /* Categories */ = {
@@ -526,10 +563,13 @@
 				91929A4815B7F67000432FE9 /* EGOImageRoundedView.h in Headers */,
 				91929A4B15B7F67000432FE9 /* EGOImageURLSafeButton.h in Headers */,
 				91929A4E15B7F67000432FE9 /* EGOImageURLSafeView.h in Headers */,
-				91929A5C15B8010300432FE9 /* EGORefreshTableHeaderView.h in Headers */,
-				91929A5F15B8010300432FE9 /* EGORefreshTableViewController.h in Headers */,
-				91929A6215B8010300432FE9 /* LSKCommonPullRefreshTableViewController.h in Headers */,
 				91929A6515B8010300432FE9 /* LSKZoomPictureViewController.h in Headers */,
+				91929A7615B80D3400432FE9 /* CustomTabBar.h in Headers */,
+				91929A8115B80D9600432FE9 /* LSKCustomTabBarViewController.h in Headers */,
+				91929A8E15B80DB400432FE9 /* LSKSegmentManagingViewController.h in Headers */,
+				91929A9115B80DB400432FE9 /* EGORefreshTableHeaderView.h in Headers */,
+				91929A9415B80DB400432FE9 /* EGORefreshTableViewController.h in Headers */,
+				91929A9715B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,10 +721,13 @@
 				91929A4915B7F67000432FE9 /* EGOImageRoundedView.m in Sources */,
 				91929A4C15B7F67000432FE9 /* EGOImageURLSafeButton.m in Sources */,
 				91929A4F15B7F67000432FE9 /* EGOImageURLSafeView.m in Sources */,
-				91929A5D15B8010300432FE9 /* EGORefreshTableHeaderView.m in Sources */,
-				91929A6015B8010300432FE9 /* EGORefreshTableViewController.m in Sources */,
-				91929A6315B8010300432FE9 /* LSKCommonPullRefreshTableViewController.m in Sources */,
 				91929A6615B8010300432FE9 /* LSKZoomPictureViewController.m in Sources */,
+				91929A7715B80D3400432FE9 /* CustomTabBar.m in Sources */,
+				91929A8215B80D9600432FE9 /* LSKCustomTabBarViewController.m in Sources */,
+				91929A8F15B80DB400432FE9 /* LSKSegmentManagingViewController.m in Sources */,
+				91929A9215B80DB400432FE9 /* EGORefreshTableHeaderView.m in Sources */,
+				91929A9515B80DB400432FE9 /* EGORefreshTableViewController.m in Sources */,
+				91929A9815B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,10 +762,13 @@
 				91929A4A15B7F67000432FE9 /* EGOImageRoundedView.m in Sources */,
 				91929A4D15B7F67000432FE9 /* EGOImageURLSafeButton.m in Sources */,
 				91929A5015B7F67000432FE9 /* EGOImageURLSafeView.m in Sources */,
-				91929A5E15B8010300432FE9 /* EGORefreshTableHeaderView.m in Sources */,
-				91929A6115B8010300432FE9 /* EGORefreshTableViewController.m in Sources */,
-				91929A6415B8010300432FE9 /* LSKCommonPullRefreshTableViewController.m in Sources */,
 				91929A6715B8010300432FE9 /* LSKZoomPictureViewController.m in Sources */,
+				91929A7815B80D3400432FE9 /* CustomTabBar.m in Sources */,
+				91929A8315B80D9600432FE9 /* LSKCustomTabBarViewController.m in Sources */,
+				91929A9015B80DB400432FE9 /* LSKSegmentManagingViewController.m in Sources */,
+				91929A9315B80DB400432FE9 /* EGORefreshTableHeaderView.m in Sources */,
+				91929A9615B80DB400432FE9 /* EGORefreshTableViewController.m in Sources */,
+				91929A9915B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
