@@ -1,0 +1,15 @@
+PODS:
+  - EGOCache (0.1.0)
+  - EGOImageLoading (0.0.1.120329):
+    - EGOCache
+  - MBProgressHUD (0.5)
+  - MKNumberBadgeView (0.0.1.120329)
+  - SVProgressHUD (0.7)
+  - VTPG_Log (0.0.1.120719)
+
+DEPENDENCIES:
+  - EGOImageLoading (defined in Podfile)
+  - MBProgressHUD (~> 0.5)
+  - MKNumberBadgeView (defined in Podfile)
+  - SVProgressHUD (~> 0.6)
+  - VTPG_Log (defined in Podfile)

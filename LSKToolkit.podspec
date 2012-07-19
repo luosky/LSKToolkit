@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   # over the selected files.
   # (See http://rake.rubyforge.org/classes/Rake/FileList.html.)
   #
-  s.source_files = 'LSKToolkit/*.{h,m}','LSKToolkit/**/*.{h,m}'
+  s.source_files = 'LSKToolkit/**/*.{h,m}'
 
   s.resources = "LSKToolkit/Resources/*.png"
 
