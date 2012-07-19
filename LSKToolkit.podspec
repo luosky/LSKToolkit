@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   # Specify the location from where the source should be retreived.
   #
-  s.source   = { :git => 'https://github.com/luosky/LSKToolkit.git', :commit => '982a06529d36563f839a05055e133e49ae619fef' }
+  s.source   = { :git => 'https://github.com/luosky/LSKToolkit.git', :commit => 'a2d9bd073a7bdac5352b3ad756ae0a22d0395e76' }
 
   s.description = 'An optional longer description of LSKToolkit.'
 
@@ -55,8 +55,6 @@ Pod::Spec.new do |s|
   # s.library = 'iconv'
   # s.libraries = 'iconv', 'xml2'
 
-  # If this Pod uses ARC, specify it like so.
-  #
 s.requires_arc = true
 
   # If you need to specify any other build settings, add them to the
@@ -64,7 +62,8 @@ s.requires_arc = true
   #
   # s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
 
-  # Finally, specify any Pods that this Pod depends on.
-  #
-  # s.dependency 'JSONKit', '~> 1.4'
+s.dependency 'EGOImageLoading'
+s.dependency 'SVProgressHUD',       '~> 0.6'
+s.dependency 'MBProgressHUD',       '~> 0.5'
+
 end
