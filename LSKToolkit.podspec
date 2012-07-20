@@ -11,26 +11,20 @@ Pod::Spec.new do |s|
   s.summary  = 'A short description of LSKToolkit.'
   s.homepage = 'https://github.com/luosky/LSKToolkit'
   s.author   = { 'Luosky' => 'luosky@gmail.com' }
-
-  # Specify the location from where the source should be retreived.
-  #
-  s.source   = { :git => 'https://github.com/luosky/LSKToolkit.git', :commit => 'd6b9d420d2cf17c96c0386f136502918eda7bcd5' }
+  s.source   = { :git => 'https://github.com/luosky/LSKToolkit.git', :commit => '2ce1cbcf5f065b5b4df4ff8129aa5c1144df9c24' }
 
   s.description = 'An optional longer description of LSKToolkit.'
-
   s.platform = :ios
 
-  # A list of file patterns which select the source files that should be
-  # added to the Pods project. If the pattern is a directory then the
-  # path will automatically have '*.{h,m,mm,c,cpp}' appended.
-  #
-  # Alternatively, you can use the FileList class for even more control
-  # over the selected files.
-  # (See http://rake.rubyforge.org/classes/Rake/FileList.html.)
-  #
   s.source_files = 'LSKToolkit/**/*.{h,m}'
-
   s.resources = "LSKToolkit/Resources/*.png"
+  s.framework = 'MessageUI'
+  s.requires_arc = true
+
+  s.dependency 'EGOImageLoading'
+  s.dependency 'SVProgressHUD',       '~> 0.6'
+  s.dependency 'MBProgressHUD',       '~> 0.5'
+
 
   # A list of paths to remove after installing the Pod without the
   # `--no-clean' option. These can be examples, docs, and any other type
@@ -49,21 +43,17 @@ Pod::Spec.new do |s|
   # s.framework = 'SomeFramework'
   # s.frameworks = 'SomeFramework', 'AnotherFramework'
 
+
   # Specify a list of libraries that the application needs to link
   # against for this Pod to work.
   #
   # s.library = 'iconv'
   # s.libraries = 'iconv', 'xml2'
 
-s.requires_arc = true
 
   # If you need to specify any other build settings, add them to the
   # xcconfig hash.
   #
   # s.xcconfig = { 'HEADER_SEARCH_PATHS' => '$(SDKROOT)/usr/include/libxml2' }
-
-s.dependency 'EGOImageLoading'
-s.dependency 'SVProgressHUD',       '~> 0.6'
-s.dependency 'MBProgressHUD',       '~> 0.5'
 
 end

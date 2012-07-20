@@ -81,12 +81,7 @@
 		91929A0715B7B5A700432FE9 /* NSDictionary+Extend.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A0515B7B5A700432FE9 /* NSDictionary+Extend.h */; };
 		91929A0815B7B5A700432FE9 /* NSDictionary+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A0615B7B5A700432FE9 /* NSDictionary+Extend.m */; };
 		91929A0915B7B5A700432FE9 /* NSDictionary+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A0615B7B5A700432FE9 /* NSDictionary+Extend.m */; };
-		91929A0B15B7B63600432FE9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91929A0A15B7B63500432FE9 /* CoreGraphics.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		91929A0D15B7B66C00432FE9 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91929A0C15B7B66C00432FE9 /* CoreLocation.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		91929A0F15B7B6DC00432FE9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91929A0E15B7B6DB00432FE9 /* QuartzCore.framework */; };
 		91929A1115B7B6FF00432FE9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91929A1015B7B6FF00432FE9 /* UIKit.framework */; };
-		91929A1315B7B73400432FE9 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91929A1215B7B73400432FE9 /* MessageUI.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		91929A1515B7B74B00432FE9 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91929A1415B7B74B00432FE9 /* CoreText.framework */; };
 		91929A1A15B7EBA200432FE9 /* LSKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A1915B7EBA100432FE9 /* LSKConstants.m */; };
 		91929A1B15B7EBA200432FE9 /* LSKConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A1915B7EBA100432FE9 /* LSKConstants.m */; };
 		91929A3315B7F67000432FE9 /* LSKBaseCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A1E15B7F67000432FE9 /* LSKBaseCell.h */; };
@@ -254,12 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91929A1515B7B74B00432FE9 /* CoreText.framework in Frameworks */,
-				91929A1315B7B73400432FE9 /* MessageUI.framework in Frameworks */,
 				91929A1115B7B6FF00432FE9 /* UIKit.framework in Frameworks */,
-				91929A0F15B7B6DC00432FE9 /* QuartzCore.framework in Frameworks */,
-				91929A0D15B7B66C00432FE9 /* CoreLocation.framework in Frameworks */,
-				91929A0B15B7B63600432FE9 /* CoreGraphics.framework in Frameworks */,
 				9108EE6C15AD5A2400F10B62 /* Foundation.framework in Frameworks */,
 				99EC99BF5DBE4F4189FA2543 /* libPods.a in Frameworks */,
 			);
