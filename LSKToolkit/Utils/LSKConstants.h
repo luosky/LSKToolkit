@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PagedResult.h"
 
 #define HEIGHT_WIHTOUT_NAV_AND_TAB_BAR 367
 #define CONSTANT_STATUS_BAR_HEIGHT	20
@@ -37,6 +38,11 @@
 
 #define CELL_MINI_HEIGHT		(CELL_IMAGE_PADDING * 2 + CELL_AVATAR_IMAGE_WIDTH +CELL_INNER_MARGIN * 2 + FONT_SIZE_SMALL)
 #define CELL_CONTENT_MINI_HEIGHT		(CELL_MINI_HEIGHT - CELL_INNER_MARGIN * 3 - FONT_SIZE_BIG)
+
+
+//for MKNetwork
+typedef void (^LSKArrayBlock)(NSArray* ary, BOOL isCache);
+typedef void (^LSKPagedResultBlock)(PagedResult *result, BOOL isCache);
 
 
 @interface LSKConstants : NSObject {

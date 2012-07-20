@@ -25,7 +25,7 @@
 // THE SOFTWARE
 //
 
-#import "CustomTabBar.h"
+#import "LSKCustomTabBar.h"
 #import "MKNumberBadgeView.h"
 
 #define GLOW_IMAGE_TAG 2394858
@@ -33,7 +33,7 @@
 #define SELECTED_ITEM_TAG 2394860
 #define TAB_BADGE_START_TAG 786400
 #define TAB_BADGE_IMAGE_START_TAG 324600
-@interface CustomTabBar (PrivateMethods)
+@interface LSKCustomTabBar (PrivateMethods)
 - (CGFloat) horizontalLocationFor:(NSUInteger)tabIndex;
 - (void) addTabBarArrowAtIndex:(NSUInteger)itemIndex;
 -(UIButton*) buttonAtIndex:(NSUInteger)itemIndex width:(CGFloat)width;
@@ -42,7 +42,7 @@
 -(UIImage*) tabBarBackgroundImageWithSize:(CGSize)targetSize backgroundImage:(UIImage*)backgroundImage;
 @end
 
-@implementation CustomTabBar
+@implementation LSKCustomTabBar
 @synthesize buttons;
 
 - (id) initWithItemCount:(NSUInteger)itemCount itemSize:(CGSize)itemSize tag:(NSInteger)objectTag delegate:(NSObject <CustomTabBarDelegate>*)customTabBarDelegate

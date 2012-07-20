@@ -25,11 +25,11 @@
 // THE SOFTWARE
 //
 
-#import "CustomTabBar.h"
+#import "LSKCustomTabBar.h"
 
 @interface LSKCustomTabBarViewController : UIViewController <CustomTabBarDelegate, UINavigationControllerDelegate>
 
-@property (nonatomic, strong) CustomTabBar* tabBar;
+@property (nonatomic, strong) LSKCustomTabBar* tabBar;
 @property (nonatomic, strong) NSArray* tabBarItems;
 @property (nonatomic, assign) int selectedIndex;
 

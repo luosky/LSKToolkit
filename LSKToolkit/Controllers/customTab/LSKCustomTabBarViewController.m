@@ -53,7 +53,7 @@
     [super viewDidLoad];
     
     // Create a custom tab bar passing in the number of items, the size of each item and setting ourself as the delegate
-    self.tabBar = [[CustomTabBar alloc] initWithItemCount:self.tabBarItems.count itemSize:CGSizeMake(self.view.frame.size.width/self.tabBarItems.count, self.tabBarHeight) tag:0 delegate:self] ;
+    self.tabBar = [[LSKCustomTabBar alloc] initWithItemCount:self.tabBarItems.count itemSize:CGSizeMake(self.view.frame.size.width/self.tabBarItems.count, self.tabBarHeight) tag:0 delegate:self] ;
     
     // Place the tab bar at the bottom of our view
     self.tabBar.frame = CGRectMake(0,self.view.frame.size.height-self.tabBarHeight,self.view.frame.size.width, self.tabBarHeight);
@@ -106,7 +106,7 @@
 }
 
 #pragma mark others
-- (UIImage*) imageFor:(CustomTabBar*)tabBar atIndex:(NSUInteger)itemIndex
+- (UIImage*) imageFor:(LSKCustomTabBar*)tabBar atIndex:(NSUInteger)itemIndex
 {
     // Get the right data
     NSDictionary* data = [tabBarItems objectAtIndex:itemIndex];
@@ -114,7 +114,7 @@
     return [UIImage imageNamed:[data objectForKey:@"image"]];
 }
 
-- (UIImage*) highlightImageFor:(CustomTabBar*)tabBar atIndex:(NSUInteger)itemIndex
+- (UIImage*) highlightImageFor:(LSKCustomTabBar*)tabBar atIndex:(NSUInteger)itemIndex
 {
     // Get the right data
     NSDictionary* data = [tabBarItems objectAtIndex:itemIndex];

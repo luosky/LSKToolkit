@@ -15,6 +15,18 @@
 		9108EE8015AD5A2400F10B62 /* libLSKToolkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9108EE6815AD5A2400F10B62 /* libLSKToolkit.a */; };
 		9108EE8615AD5A2400F10B62 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9108EE8415AD5A2400F10B62 /* InfoPlist.strings */; };
 		9108EE8915AD5A2400F10B62 /* LSKToolkitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9108EE8815AD5A2400F10B62 /* LSKToolkitTests.m */; };
+		9157669115B939A200E81544 /* LSKCustomTabBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 9157668D15B939A200E81544 /* LSKCustomTabBar.h */; };
+		9157669215B939A200E81544 /* LSKCustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9157668E15B939A200E81544 /* LSKCustomTabBar.m */; };
+		9157669315B939A200E81544 /* LSKCustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9157668E15B939A200E81544 /* LSKCustomTabBar.m */; };
+		9157669415B939A200E81544 /* LSKCustomTabBarViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9157668F15B939A200E81544 /* LSKCustomTabBarViewController.h */; };
+		9157669515B939A200E81544 /* LSKCustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9157669015B939A200E81544 /* LSKCustomTabBarViewController.m */; };
+		9157669615B939A200E81544 /* LSKCustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9157669015B939A200E81544 /* LSKCustomTabBarViewController.m */; };
+		9183C6C015B909D5001DC406 /* PagedResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 9183C6BE15B909D5001DC406 /* PagedResult.h */; };
+		9183C6C115B909D5001DC406 /* PagedResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9183C6BF15B909D5001DC406 /* PagedResult.m */; };
+		9183C6C215B909D5001DC406 /* PagedResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9183C6BF15B909D5001DC406 /* PagedResult.m */; };
+		9183C6C615B90ADE001DC406 /* LSKCommonMKTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9183C6C415B90ADE001DC406 /* LSKCommonMKTableViewController.h */; };
+		9183C6C715B90ADE001DC406 /* LSKCommonMKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9183C6C515B90ADE001DC406 /* LSKCommonMKTableViewController.m */; };
+		9183C6C815B90ADE001DC406 /* LSKCommonMKTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9183C6C515B90ADE001DC406 /* LSKCommonMKTableViewController.m */; };
 		9192998C15B7ACB000432FE9 /* blackArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9192996F15B7ACB000432FE9 /* blackArrow.png */; };
 		9192998D15B7ACB000432FE9 /* blackArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9192997015B7ACB000432FE9 /* blackArrow@2x.png */; };
 		9192998E15B7ACB000432FE9 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 9192997115B7ACB000432FE9 /* blueArrow.png */; };
@@ -111,12 +123,6 @@
 		91929A6615B8010300432FE9 /* LSKZoomPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A5A15B8010300432FE9 /* LSKZoomPictureViewController.m */; };
 		91929A6715B8010300432FE9 /* LSKZoomPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A5A15B8010300432FE9 /* LSKZoomPictureViewController.m */; };
 		91929A6815B8010300432FE9 /* LSKZoomPictureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91929A5B15B8010300432FE9 /* LSKZoomPictureViewController.xib */; };
-		91929A7615B80D3400432FE9 /* CustomTabBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A6F15B80D3400432FE9 /* CustomTabBar.h */; };
-		91929A7715B80D3400432FE9 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A7015B80D3400432FE9 /* CustomTabBar.m */; };
-		91929A7815B80D3400432FE9 /* CustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A7015B80D3400432FE9 /* CustomTabBar.m */; };
-		91929A8115B80D9600432FE9 /* LSKCustomTabBarViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A7F15B80D9600432FE9 /* LSKCustomTabBarViewController.h */; };
-		91929A8215B80D9600432FE9 /* LSKCustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A8015B80D9600432FE9 /* LSKCustomTabBarViewController.m */; };
-		91929A8315B80D9600432FE9 /* LSKCustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A8015B80D9600432FE9 /* LSKCustomTabBarViewController.m */; };
 		91929A8E15B80DB400432FE9 /* LSKSegmentManagingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A8515B80DB400432FE9 /* LSKSegmentManagingViewController.h */; };
 		91929A8F15B80DB400432FE9 /* LSKSegmentManagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A8615B80DB400432FE9 /* LSKSegmentManagingViewController.m */; };
 		91929A9015B80DB400432FE9 /* LSKSegmentManagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A8615B80DB400432FE9 /* LSKSegmentManagingViewController.m */; };
@@ -156,6 +162,14 @@
 		9108EE8515AD5A2400F10B62 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9108EE8715AD5A2400F10B62 /* LSKToolkitTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSKToolkitTests.h; sourceTree = "<group>"; };
 		9108EE8815AD5A2400F10B62 /* LSKToolkitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSKToolkitTests.m; sourceTree = "<group>"; };
+		9157668D15B939A200E81544 /* LSKCustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKCustomTabBar.h; sourceTree = "<group>"; };
+		9157668E15B939A200E81544 /* LSKCustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKCustomTabBar.m; sourceTree = "<group>"; };
+		9157668F15B939A200E81544 /* LSKCustomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKCustomTabBarViewController.h; sourceTree = "<group>"; };
+		9157669015B939A200E81544 /* LSKCustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKCustomTabBarViewController.m; sourceTree = "<group>"; };
+		9183C6BE15B909D5001DC406 /* PagedResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagedResult.h; sourceTree = "<group>"; };
+		9183C6BF15B909D5001DC406 /* PagedResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagedResult.m; sourceTree = "<group>"; };
+		9183C6C415B90ADE001DC406 /* LSKCommonMKTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKCommonMKTableViewController.h; sourceTree = "<group>"; };
+		9183C6C515B90ADE001DC406 /* LSKCommonMKTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKCommonMKTableViewController.m; sourceTree = "<group>"; };
 		9192996F15B7ACB000432FE9 /* blackArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blackArrow.png; sourceTree = "<group>"; };
 		9192997015B7ACB000432FE9 /* blackArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blackArrow@2x.png"; sourceTree = "<group>"; };
 		9192997115B7ACB000432FE9 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
@@ -225,10 +239,6 @@
 		91929A5915B8010300432FE9 /* LSKZoomPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKZoomPictureViewController.h; sourceTree = "<group>"; };
 		91929A5A15B8010300432FE9 /* LSKZoomPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKZoomPictureViewController.m; sourceTree = "<group>"; };
 		91929A5B15B8010300432FE9 /* LSKZoomPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSKZoomPictureViewController.xib; sourceTree = "<group>"; };
-		91929A6F15B80D3400432FE9 /* CustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomTabBar.h; sourceTree = "<group>"; };
-		91929A7015B80D3400432FE9 /* CustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomTabBar.m; sourceTree = "<group>"; };
-		91929A7F15B80D9600432FE9 /* LSKCustomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKCustomTabBarViewController.h; sourceTree = "<group>"; };
-		91929A8015B80D9600432FE9 /* LSKCustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKCustomTabBarViewController.m; sourceTree = "<group>"; };
 		91929A8515B80DB400432FE9 /* LSKSegmentManagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKSegmentManagingViewController.h; sourceTree = "<group>"; };
 		91929A8615B80DB400432FE9 /* LSKSegmentManagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKSegmentManagingViewController.m; sourceTree = "<group>"; };
 		91929A8815B80DB400432FE9 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
@@ -310,6 +320,7 @@
 		9108EE6D15AD5A2400F10B62 /* LSKToolkit */ = {
 			isa = PBXGroup;
 			children = (
+				9183C6BD15B909D5001DC406 /* Models */,
 				91929A5115B8010100432FE9 /* Controllers */,
 				91929A1C15B7F66F00432FE9 /* Views */,
 				91F530EE15B69DCA00BC9C3A /* Categories */,
@@ -346,6 +357,26 @@
 				9108EE8415AD5A2400F10B62 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9157668C15B939A200E81544 /* CustomTab */ = {
+			isa = PBXGroup;
+			children = (
+				9157668D15B939A200E81544 /* LSKCustomTabBar.h */,
+				9157668E15B939A200E81544 /* LSKCustomTabBar.m */,
+				9157668F15B939A200E81544 /* LSKCustomTabBarViewController.h */,
+				9157669015B939A200E81544 /* LSKCustomTabBarViewController.m */,
+			);
+			path = CustomTab;
+			sourceTree = "<group>";
+		};
+		9183C6BD15B909D5001DC406 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9183C6BE15B909D5001DC406 /* PagedResult.h */,
+				9183C6BF15B909D5001DC406 /* PagedResult.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		9192996D15B7ACB000432FE9 /* Resources */ = {
@@ -458,25 +489,14 @@
 		91929A5115B8010100432FE9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9157668C15B939A200E81544 /* CustomTab */,
 				91929A8415B80DB400432FE9 /* SegmentsSwitch */,
 				91929A8715B80DB400432FE9 /* PullRefresh */,
-				91929A6E15B80D3400432FE9 /* customTab */,
 				91929A5915B8010300432FE9 /* LSKZoomPictureViewController.h */,
 				91929A5A15B8010300432FE9 /* LSKZoomPictureViewController.m */,
 				91929A5B15B8010300432FE9 /* LSKZoomPictureViewController.xib */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		91929A6E15B80D3400432FE9 /* customTab */ = {
-			isa = PBXGroup;
-			children = (
-				91929A6F15B80D3400432FE9 /* CustomTabBar.h */,
-				91929A7015B80D3400432FE9 /* CustomTabBar.m */,
-				91929A7F15B80D9600432FE9 /* LSKCustomTabBarViewController.h */,
-				91929A8015B80D9600432FE9 /* LSKCustomTabBarViewController.m */,
-			);
-			path = customTab;
 			sourceTree = "<group>";
 		};
 		91929A8415B80DB400432FE9 /* SegmentsSwitch */ = {
@@ -497,6 +517,8 @@
 				91929A8B15B80DB400432FE9 /* EGORefreshTableViewController.m */,
 				91929A8C15B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.h */,
 				91929A8D15B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m */,
+				9183C6C415B90ADE001DC406 /* LSKCommonMKTableViewController.h */,
+				9183C6C515B90ADE001DC406 /* LSKCommonMKTableViewController.m */,
 			);
 			path = PullRefresh;
 			sourceTree = "<group>";
@@ -564,12 +586,14 @@
 				91929A4B15B7F67000432FE9 /* EGOImageURLSafeButton.h in Headers */,
 				91929A4E15B7F67000432FE9 /* EGOImageURLSafeView.h in Headers */,
 				91929A6515B8010300432FE9 /* LSKZoomPictureViewController.h in Headers */,
-				91929A7615B80D3400432FE9 /* CustomTabBar.h in Headers */,
-				91929A8115B80D9600432FE9 /* LSKCustomTabBarViewController.h in Headers */,
 				91929A8E15B80DB400432FE9 /* LSKSegmentManagingViewController.h in Headers */,
 				91929A9115B80DB400432FE9 /* EGORefreshTableHeaderView.h in Headers */,
 				91929A9415B80DB400432FE9 /* EGORefreshTableViewController.h in Headers */,
 				91929A9715B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.h in Headers */,
+				9183C6C015B909D5001DC406 /* PagedResult.h in Headers */,
+				9183C6C615B90ADE001DC406 /* LSKCommonMKTableViewController.h in Headers */,
+				9157669115B939A200E81544 /* LSKCustomTabBar.h in Headers */,
+				9157669415B939A200E81544 /* LSKCustomTabBarViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -722,12 +746,14 @@
 				91929A4C15B7F67000432FE9 /* EGOImageURLSafeButton.m in Sources */,
 				91929A4F15B7F67000432FE9 /* EGOImageURLSafeView.m in Sources */,
 				91929A6615B8010300432FE9 /* LSKZoomPictureViewController.m in Sources */,
-				91929A7715B80D3400432FE9 /* CustomTabBar.m in Sources */,
-				91929A8215B80D9600432FE9 /* LSKCustomTabBarViewController.m in Sources */,
 				91929A8F15B80DB400432FE9 /* LSKSegmentManagingViewController.m in Sources */,
 				91929A9215B80DB400432FE9 /* EGORefreshTableHeaderView.m in Sources */,
 				91929A9515B80DB400432FE9 /* EGORefreshTableViewController.m in Sources */,
 				91929A9815B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m in Sources */,
+				9183C6C115B909D5001DC406 /* PagedResult.m in Sources */,
+				9183C6C715B90ADE001DC406 /* LSKCommonMKTableViewController.m in Sources */,
+				9157669215B939A200E81544 /* LSKCustomTabBar.m in Sources */,
+				9157669515B939A200E81544 /* LSKCustomTabBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,12 +789,14 @@
 				91929A4D15B7F67000432FE9 /* EGOImageURLSafeButton.m in Sources */,
 				91929A5015B7F67000432FE9 /* EGOImageURLSafeView.m in Sources */,
 				91929A6715B8010300432FE9 /* LSKZoomPictureViewController.m in Sources */,
-				91929A7815B80D3400432FE9 /* CustomTabBar.m in Sources */,
-				91929A8315B80D9600432FE9 /* LSKCustomTabBarViewController.m in Sources */,
 				91929A9015B80DB400432FE9 /* LSKSegmentManagingViewController.m in Sources */,
 				91929A9315B80DB400432FE9 /* EGORefreshTableHeaderView.m in Sources */,
 				91929A9615B80DB400432FE9 /* EGORefreshTableViewController.m in Sources */,
 				91929A9915B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m in Sources */,
+				9183C6C215B909D5001DC406 /* PagedResult.m in Sources */,
+				9183C6C815B90ADE001DC406 /* LSKCommonMKTableViewController.m in Sources */,
+				9157669315B939A200E81544 /* LSKCustomTabBar.m in Sources */,
+				9157669615B939A200E81544 /* LSKCustomTabBarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

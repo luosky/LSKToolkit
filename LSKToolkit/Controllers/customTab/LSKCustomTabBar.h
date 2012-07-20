@@ -25,11 +25,11 @@
 // THE SOFTWARE
 //
 
-@class CustomTabBar;
+@class LSKCustomTabBar;
 @protocol CustomTabBarDelegate
 
-- (UIImage*) imageFor:(CustomTabBar*)tabBar atIndex:(NSUInteger)itemIndex;
-- (UIImage*) highlightImageFor:(CustomTabBar*)tabBar atIndex:(NSUInteger)itemIndex;
+- (UIImage*) imageFor:(LSKCustomTabBar*)tabBar atIndex:(NSUInteger)itemIndex;
+- (UIImage*) highlightImageFor:(LSKCustomTabBar*)tabBar atIndex:(NSUInteger)itemIndex;
 - (UIImage*) backgroundImage;
 - (UIImage*) selectedItemBackgroundImage;
 - (UIImage*) glowImage;
@@ -42,7 +42,7 @@
 @end
 
 
-@interface CustomTabBar : UIView
+@interface LSKCustomTabBar : UIView
 {
   NSObject <CustomTabBarDelegate> *delegate;
   NSMutableArray* buttons;
