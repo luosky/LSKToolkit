@@ -62,9 +62,6 @@
 		919299BE15B7ACC800432FE9 /* UIImageExtendForScale.h in Headers */ = {isa = PBXBuildFile; fileRef = 919299A415B7ACC800432FE9 /* UIImageExtendForScale.h */; };
 		919299BF15B7ACC800432FE9 /* UIImageExtendForScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 919299A515B7ACC800432FE9 /* UIImageExtendForScale.m */; };
 		919299C015B7ACC800432FE9 /* UIImageExtendForScale.m in Sources */ = {isa = PBXBuildFile; fileRef = 919299A515B7ACC800432FE9 /* UIImageExtendForScale.m */; };
-		919299D715B7AD6D00432FE9 /* Functions.h in Headers */ = {isa = PBXBuildFile; fileRef = 919299C815B7AD6D00432FE9 /* Functions.h */; };
-		919299D815B7AD6D00432FE9 /* Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 919299C915B7AD6D00432FE9 /* Functions.m */; };
-		919299D915B7AD6D00432FE9 /* Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 919299C915B7AD6D00432FE9 /* Functions.m */; };
 		919299DA15B7AD6D00432FE9 /* LSKLocationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 919299CB15B7AD6D00432FE9 /* LSKLocationCenter.h */; };
 		919299DB15B7AD6D00432FE9 /* LSKLocationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 919299CC15B7AD6D00432FE9 /* LSKLocationCenter.m */; };
 		919299DC15B7AD6D00432FE9 /* LSKLocationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 919299CC15B7AD6D00432FE9 /* LSKLocationCenter.m */; };
@@ -191,8 +188,6 @@
 		919299A315B7ACC800432FE9 /* UIImage+RoundCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundCorner.h"; sourceTree = "<group>"; };
 		919299A415B7ACC800432FE9 /* UIImageExtendForScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageExtendForScale.h; sourceTree = "<group>"; };
 		919299A515B7ACC800432FE9 /* UIImageExtendForScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageExtendForScale.m; sourceTree = "<group>"; };
-		919299C815B7AD6D00432FE9 /* Functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Functions.h; sourceTree = "<group>"; };
-		919299C915B7AD6D00432FE9 /* Functions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Functions.m; sourceTree = "<group>"; };
 		919299CB15B7AD6D00432FE9 /* LSKLocationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKLocationCenter.h; sourceTree = "<group>"; };
 		919299CC15B7AD6D00432FE9 /* LSKLocationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKLocationCenter.m; sourceTree = "<group>"; };
 		919299D015B7AD6D00432FE9 /* LSKConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKConstants.h; sourceTree = "<group>"; };
@@ -395,8 +390,6 @@
 		919299C715B7AD6D00432FE9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				919299C815B7AD6D00432FE9 /* Functions.h */,
-				919299C915B7AD6D00432FE9 /* Functions.m */,
 				919299CA15B7AD6D00432FE9 /* Location */,
 				919299D015B7AD6D00432FE9 /* LSKConstants.h */,
 				91929A1915B7EBA100432FE9 /* LSKConstants.m */,
@@ -558,7 +551,6 @@
 				919299BC15B7ACC800432FE9 /* UITableViewController+RoundedBackground.h in Headers */,
 				919299BD15B7ACC800432FE9 /* UIImage+RoundCorner.h in Headers */,
 				919299BE15B7ACC800432FE9 /* UIImageExtendForScale.h in Headers */,
-				919299D715B7AD6D00432FE9 /* Functions.h in Headers */,
 				919299DA15B7AD6D00432FE9 /* LSKLocationCenter.h in Headers */,
 				919299E015B7AD6D00432FE9 /* LSKConstants.h in Headers */,
 				919299E115B7AD6D00432FE9 /* LSKMailSender.h in Headers */,
@@ -718,7 +710,6 @@
 				919299B815B7ACC800432FE9 /* NSHTTPCookie+Utils.m in Sources */,
 				919299BA15B7ACC800432FE9 /* UIImage+RoundCorner.m in Sources */,
 				919299BF15B7ACC800432FE9 /* UIImageExtendForScale.m in Sources */,
-				919299D815B7AD6D00432FE9 /* Functions.m in Sources */,
 				919299DB15B7AD6D00432FE9 /* LSKLocationCenter.m in Sources */,
 				919299E215B7AD6D00432FE9 /* LSKMailSender.m in Sources */,
 				919299E515B7AD6D00432FE9 /* LSKSMSSender.m in Sources */,
@@ -761,7 +752,6 @@
 				919299B915B7ACC800432FE9 /* NSHTTPCookie+Utils.m in Sources */,
 				919299BB15B7ACC800432FE9 /* UIImage+RoundCorner.m in Sources */,
 				919299C015B7ACC800432FE9 /* UIImageExtendForScale.m in Sources */,
-				919299D915B7AD6D00432FE9 /* Functions.m in Sources */,
 				919299DC15B7AD6D00432FE9 /* LSKLocationCenter.m in Sources */,
 				919299E315B7AD6D00432FE9 /* LSKMailSender.m in Sources */,
 				919299E615B7AD6D00432FE9 /* LSKSMSSender.m in Sources */,

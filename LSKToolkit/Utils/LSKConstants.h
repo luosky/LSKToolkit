@@ -9,6 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "PagedResult.h"
 
+#define INT_NUM(i) [NSNumber numberWithInt:i]
+#define FLOAT_NUM(f) [NSNumber numberWithFloat:f]
+#define IS_NOT_BLANK_STR(str) str && [str isKindOfClass:[NSString class]] && [str length] > 0
+
+
+//for MKNetwork
+typedef void (^LSKArrayBlock)(NSArray* ary, BOOL isCache);
+typedef void (^LSKPagedResultBlock)(PagedResult *result, BOOL isCache);
+
+
 #define HEIGHT_WIHTOUT_NAV_AND_TAB_BAR 367
 #define CONSTANT_STATUS_BAR_HEIGHT	20
 #define CONSTANT_NAVIGATION_BAR_HEIGHT	44
@@ -38,11 +48,6 @@
 
 #define CELL_MINI_HEIGHT		(CELL_IMAGE_PADDING * 2 + CELL_AVATAR_IMAGE_WIDTH +CELL_INNER_MARGIN * 2 + FONT_SIZE_SMALL)
 #define CELL_CONTENT_MINI_HEIGHT		(CELL_MINI_HEIGHT - CELL_INNER_MARGIN * 3 - FONT_SIZE_BIG)
-
-
-//for MKNetwork
-typedef void (^LSKArrayBlock)(NSArray* ary, BOOL isCache);
-typedef void (^LSKPagedResultBlock)(PagedResult *result, BOOL isCache);
 
 
 @interface LSKConstants : NSObject {
