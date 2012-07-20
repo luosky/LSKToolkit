@@ -66,8 +66,8 @@
 		919299D815B7AD6D00432FE9 /* Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 919299C915B7AD6D00432FE9 /* Functions.m */; };
 		919299D915B7AD6D00432FE9 /* Functions.m in Sources */ = {isa = PBXBuildFile; fileRef = 919299C915B7AD6D00432FE9 /* Functions.m */; };
 		919299DA15B7AD6D00432FE9 /* LSKLocationCenter.h in Headers */ = {isa = PBXBuildFile; fileRef = 919299CB15B7AD6D00432FE9 /* LSKLocationCenter.h */; };
-		919299DB15B7AD6D00432FE9 /* LSKLocationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 919299CC15B7AD6D00432FE9 /* LSKLocationCenter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc "; }; };
-		919299DC15B7AD6D00432FE9 /* LSKLocationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 919299CC15B7AD6D00432FE9 /* LSKLocationCenter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc "; }; };
+		919299DB15B7AD6D00432FE9 /* LSKLocationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 919299CC15B7AD6D00432FE9 /* LSKLocationCenter.m */; };
+		919299DC15B7AD6D00432FE9 /* LSKLocationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 919299CC15B7AD6D00432FE9 /* LSKLocationCenter.m */; };
 		919299E015B7AD6D00432FE9 /* LSKConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 919299D015B7AD6D00432FE9 /* LSKConstants.h */; };
 		919299E115B7AD6D00432FE9 /* LSKMailSender.h in Headers */ = {isa = PBXBuildFile; fileRef = 919299D215B7AD6D00432FE9 /* LSKMailSender.h */; };
 		919299E215B7AD6D00432FE9 /* LSKMailSender.m in Sources */ = {isa = PBXBuildFile; fileRef = 919299D315B7AD6D00432FE9 /* LSKMailSender.m */; };

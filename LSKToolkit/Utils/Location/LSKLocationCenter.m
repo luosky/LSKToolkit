@@ -18,15 +18,16 @@
 static LSKLocationCenter* sharedCLDelegate = nil;
 
 @implementation LSKLocationCenter
-@synthesize lastLocation;
+@synthesize lastLocation,location;
 @synthesize locationManager,isUpdating;
+@synthesize timer;
 
 
 - (id)init
 {
  	self = [super init];
 	if (self != nil) {
-		self.locationManager = [[[CLLocationManager alloc] init] autorelease];
+		self.locationManager = [[CLLocationManager alloc] init];
 		self.locationManager.delegate = self;
 		self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 	}
@@ -36,17 +37,12 @@ static LSKLocationCenter* sharedCLDelegate = nil;
 - (void)dealloc
 {
     if (timer)    [timer invalidate];
-    if (location) [location release];
-    
-    [lastLocation release];
     
     [locationManager stopUpdatingHeading];
     [locationManager stopUpdatingLocation];    
 	locationManager.delegate = nil;
-    [locationManager release];
-	
-    [super dealloc];
 }
+
 #pragma mark -
 #pragma mark Singleton Object Methods
 
@@ -100,12 +96,12 @@ static LSKLocationCenter* sharedCLDelegate = nil;
 - (void)getCurrentLocation
 {
     isUpdating = YES;
-    [timer invalidate];
-    timer = nil;
+    [self.timer invalidate];
+    self.timer = nil;
     [[self locationManager] startUpdatingLocation];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
-    timer = [NSTimer scheduledTimerWithTimeInterval:GPS_TIMEOUT_TIME 
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:GPS_TIMEOUT_TIME
                                              target:self 
                                            selector:@selector(locationManagerDidTimeout:userInfo:) 
                                            userInfo:nil 
@@ -130,7 +126,7 @@ static LSKLocationCenter* sharedCLDelegate = nil;
     
     self.lastLocation = newLocation;
     
-    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init]  autorelease];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateStyle:NSDateFormatterMediumStyle];
 	[dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
     
@@ -141,13 +137,12 @@ static LSKLocationCenter* sharedCLDelegate = nil;
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc postNotificationName:kLocationCenterUpdateLocationUpdated object:newLocation];
     
-    if (location) [location release];
-    location = [newLocation retain];
+    self.location=newLocation;
 	
     //数据是最近5分钟且精确度合乎要求后发布Received通知
     if (abs(howRecent) < 300 && [newLocation horizontalAccuracy] < GPS_ACCURACY_THRESHOLD) {
-        [timer invalidate];
-        timer = nil;
+        [self.timer invalidate];
+        self.timer = nil;
         [manager stopUpdatingLocation];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         @synchronized(self){
@@ -162,7 +157,7 @@ static LSKLocationCenter* sharedCLDelegate = nil;
 - (void)locationManagerDidTimeout:(NSTimer*)aTimer 
                          userInfo:(id)userInfo
 {
-    timer = nil;
+    self.timer = nil;
     [self stopUpdate];
     
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
@@ -170,22 +165,16 @@ static LSKLocationCenter* sharedCLDelegate = nil;
     if (location) {
         NSDate* eventDate = location.timestamp;
         NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
-		
+        self.location = nil;
         if ([location horizontalAccuracy] < 10000 && abs(howRecent) < GPS_TIMEOUT_TIME + 5.0) {
             [nc postNotificationName:kLocationCenterUpdateLocationReceived object:location];
-            
-            [location release];
-            location = nil;
             return;
         }
-        [location release];
-        location = nil;
+
     }
     
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
     [SVProgressHUD dismissWithError:@"无法获取地理位置" afterDelay:2];
-    //	[UIAlertView quickAlertWithTitle:@"无法获取地理位置" messageTitle:@"请求超时" dismissTitle:@"OK"];
-    
     
     [nc postNotificationName:kLocationCenterUpdateLocationFailed object:@"请求超时"];
 }
@@ -196,8 +185,6 @@ static LSKLocationCenter* sharedCLDelegate = nil;
     
     if (!([error code] == kCLErrorDenied && [[error domain] isEqualToString:kCLErrorDomain])) {
 		//if (!([error code] == kCLErrorDenied )) {
-        //		[UIAlertView quickAlertWithTitle:@"获取地理位置时出错" messageTitle:[error localizedDescription] dismissTitle:@"OK"];
-        
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
         [SVProgressHUD dismissWithError:@"无法获取地理位置" afterDelay:2];
     }
@@ -206,10 +193,9 @@ static LSKLocationCenter* sharedCLDelegate = nil;
         return;
     }
 	
-    [timer invalidate];
-    timer = nil;
-    [location release];
-    location = nil;
+    [self.timer invalidate];
+    self.timer = nil;
+    self.location = nil;
     
     
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
