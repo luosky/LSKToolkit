@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
 
   # Specify the location from where the source should be retreived.
   #
-  s.source   = { :git => 'https://github.com/luosky/LSKToolkit.git', :commit => 'a2d9bd073a7bdac5352b3ad756ae0a22d0395e76' }
+  s.source   = { :git => 'https://github.com/luosky/LSKToolkit.git', :commit => 'd6b9d420d2cf17c96c0386f136502918eda7bcd5' }
 
   s.description = 'An optional longer description of LSKToolkit.'
 
