@@ -130,6 +130,9 @@
 		91929A9715B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 91929A8C15B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.h */; };
 		91929A9815B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A8D15B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m */; };
 		91929A9915B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91929A8D15B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m */; };
+		91AC71A315BD2418002006E7 /* DateUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 91AC71A115BD2418002006E7 /* DateUtils.h */; };
+		91AC71A415BD2418002006E7 /* DateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AC71A215BD2418002006E7 /* DateUtils.m */; };
+		91AC71A515BD2418002006E7 /* DateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AC71A215BD2418002006E7 /* DateUtils.m */; };
 		99EC99BF5DBE4F4189FA2543 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0CAB215C5E431681E7AF55 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -242,6 +245,8 @@
 		91929A8B15B80DB400432FE9 /* EGORefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGORefreshTableViewController.m; sourceTree = "<group>"; };
 		91929A8C15B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKCommonPullRefreshTableViewController.h; sourceTree = "<group>"; };
 		91929A8D15B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKCommonPullRefreshTableViewController.m; sourceTree = "<group>"; };
+		91AC71A115BD2418002006E7 /* DateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtils.h; sourceTree = "<group>"; };
+		91AC71A215BD2418002006E7 /* DateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,6 +400,8 @@
 		919299C715B7AD6D00432FE9 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				91AC71A115BD2418002006E7 /* DateUtils.h */,
+				91AC71A215BD2418002006E7 /* DateUtils.m */,
 				919299CA15B7AD6D00432FE9 /* Location */,
 				919299D015B7AD6D00432FE9 /* LSKConstants.h */,
 				91929A1915B7EBA100432FE9 /* LSKConstants.m */,
@@ -584,6 +591,7 @@
 				9157669115B939A200E81544 /* LSKCustomTabBar.h in Headers */,
 				9157669415B939A200E81544 /* LSKCustomTabBarViewController.h in Headers */,
 				91107AE215BD01DA00A2B852 /* LSKPlainWebViewController.h in Headers */,
+				91AC71A315BD2418002006E7 /* DateUtils.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +752,7 @@
 				9157669215B939A200E81544 /* LSKCustomTabBar.m in Sources */,
 				9157669515B939A200E81544 /* LSKCustomTabBarViewController.m in Sources */,
 				91107AE015BD01DA00A2B852 /* LSKPlainWebViewController.m in Sources */,
+				91AC71A415BD2418002006E7 /* DateUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -787,6 +796,7 @@
 				9157669315B939A200E81544 /* LSKCustomTabBar.m in Sources */,
 				9157669615B939A200E81544 /* LSKCustomTabBarViewController.m in Sources */,
 				91107AE115BD01DA00A2B852 /* LSKPlainWebViewController.m in Sources */,
+				91AC71A515BD2418002006E7 /* DateUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
