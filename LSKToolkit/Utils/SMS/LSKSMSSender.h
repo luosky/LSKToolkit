@@ -11,4 +11,6 @@
 
 @interface LSKSMSSender : NSObject
 -(void)presentSMSComposerWithContent:(NSString*)content atController:(UIViewController<MFMessageComposeViewControllerDelegate>*) controller;
+-(void)presentSMSComposerWithContent:(NSString*)content recipient:(NSString*)recipient atController:(UIViewController<MFMessageComposeViewControllerDelegate>*) controller;
+-(void)presentSMSComposerWithContent:(NSString*)content recipients:(NSArray*)recipients atController:(UIViewController<MFMessageComposeViewControllerDelegate>*) controller;
 @end
