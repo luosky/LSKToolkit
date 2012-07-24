@@ -22,6 +22,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.webView = [[UIWebView alloc] init];
+        [self.webView setDataDetectorTypes:( UIDataDetectorTypeLink)];
         self.webView.delegate = self;
     }
     return self;
@@ -52,9 +53,16 @@
     if (!IS_NOT_BLANK_STR(urlStr)) {
         return;
     }
+    urlStr = [urlStr stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    if ([urlStr isEqualToString:@""]) {
+        return;
+    }
+
     if ([self.webView isLoading]) {
         [self.webView stopLoading];
     }
+    
 	NSURL* url = [[NSURL alloc]initWithString:urlStr];
     NSMutableURLRequest* req;
     if (withCache) {
@@ -62,7 +70,7 @@
     }else{
         req = [[NSMutableURLRequest alloc] initWithURL:url];
     }
-    
+    [req setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
 	[self.webView loadRequest:req];
 
 }

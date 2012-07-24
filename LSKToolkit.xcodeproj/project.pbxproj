@@ -24,6 +24,9 @@
 		9157669415B939A200E81544 /* LSKCustomTabBarViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9157668F15B939A200E81544 /* LSKCustomTabBarViewController.h */; };
 		9157669515B939A200E81544 /* LSKCustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9157669015B939A200E81544 /* LSKCustomTabBarViewController.m */; };
 		9157669615B939A200E81544 /* LSKCustomTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9157669015B939A200E81544 /* LSKCustomTabBarViewController.m */; };
+		917B3E8715BE7AE900060FDE /* LSKPushWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 917B3E8515BE7AE900060FDE /* LSKPushWebViewController.h */; };
+		917B3E8815BE7AE900060FDE /* LSKPushWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 917B3E8615BE7AE900060FDE /* LSKPushWebViewController.m */; };
+		917B3E8915BE7AE900060FDE /* LSKPushWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 917B3E8615BE7AE900060FDE /* LSKPushWebViewController.m */; };
 		9183C6C015B909D5001DC406 /* PagedResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 9183C6BE15B909D5001DC406 /* PagedResult.h */; };
 		9183C6C115B909D5001DC406 /* PagedResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9183C6BF15B909D5001DC406 /* PagedResult.m */; };
 		9183C6C215B909D5001DC406 /* PagedResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9183C6BF15B909D5001DC406 /* PagedResult.m */; };
@@ -166,6 +169,8 @@
 		9157668E15B939A200E81544 /* LSKCustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKCustomTabBar.m; sourceTree = "<group>"; };
 		9157668F15B939A200E81544 /* LSKCustomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKCustomTabBarViewController.h; sourceTree = "<group>"; };
 		9157669015B939A200E81544 /* LSKCustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKCustomTabBarViewController.m; sourceTree = "<group>"; };
+		917B3E8515BE7AE900060FDE /* LSKPushWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKPushWebViewController.h; sourceTree = "<group>"; };
+		917B3E8615BE7AE900060FDE /* LSKPushWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKPushWebViewController.m; sourceTree = "<group>"; };
 		9183C6BE15B909D5001DC406 /* PagedResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagedResult.h; sourceTree = "<group>"; };
 		9183C6BF15B909D5001DC406 /* PagedResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagedResult.m; sourceTree = "<group>"; };
 		9183C6C415B90ADE001DC406 /* LSKCommonMKTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKCommonMKTableViewController.h; sourceTree = "<group>"; };
@@ -492,6 +497,8 @@
 				91929A5B15B8010300432FE9 /* LSKZoomPictureViewController.xib */,
 				91107ADE15BD01DA00A2B852 /* LSKPlainWebViewController.m */,
 				91107ADF15BD01DA00A2B852 /* LSKPlainWebViewController.h */,
+				917B3E8515BE7AE900060FDE /* LSKPushWebViewController.h */,
+				917B3E8615BE7AE900060FDE /* LSKPushWebViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -592,6 +599,7 @@
 				9157669415B939A200E81544 /* LSKCustomTabBarViewController.h in Headers */,
 				91107AE215BD01DA00A2B852 /* LSKPlainWebViewController.h in Headers */,
 				91AC71A315BD2418002006E7 /* DateUtils.h in Headers */,
+				917B3E8715BE7AE900060FDE /* LSKPushWebViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -753,6 +761,7 @@
 				9157669515B939A200E81544 /* LSKCustomTabBarViewController.m in Sources */,
 				91107AE015BD01DA00A2B852 /* LSKPlainWebViewController.m in Sources */,
 				91AC71A415BD2418002006E7 /* DateUtils.m in Sources */,
+				917B3E8815BE7AE900060FDE /* LSKPushWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -797,6 +806,7 @@
 				9157669615B939A200E81544 /* LSKCustomTabBarViewController.m in Sources */,
 				91107AE115BD01DA00A2B852 /* LSKPlainWebViewController.m in Sources */,
 				91AC71A515BD2418002006E7 /* DateUtils.m in Sources */,
+				917B3E8915BE7AE900060FDE /* LSKPushWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
