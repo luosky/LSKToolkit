@@ -18,11 +18,6 @@
 
 #pragma mark shouldStartLoadWithRequest
 
-typedef enum {
-    RequestShouldStartLoadingResultUndetermined,
-    RequestShouldStartLoadingResultYes,
-    RequestShouldStartLoadingResultNo
-} RequestShouldStartLoadingResult;
 
 // if you need to intercept some request and display a native interface instead, override this methods to display it and return RequestShouldStartLoadingResultNo so that a blank web page won't be present.
 - (RequestShouldStartLoadingResult)interceptRequest:(NSURLRequest*)request{

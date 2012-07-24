@@ -10,4 +10,11 @@
 
 @interface LSKPushWebViewController : LSKPlainWebViewController
 
+typedef enum {
+    RequestShouldStartLoadingResultUndetermined,
+    RequestShouldStartLoadingResultYes,
+    RequestShouldStartLoadingResultNo
+} RequestShouldStartLoadingResult;
+
+
 @end
