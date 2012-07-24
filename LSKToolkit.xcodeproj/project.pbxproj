@@ -27,6 +27,18 @@
 		917B3E8715BE7AE900060FDE /* LSKPushWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 917B3E8515BE7AE900060FDE /* LSKPushWebViewController.h */; };
 		917B3E8815BE7AE900060FDE /* LSKPushWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 917B3E8615BE7AE900060FDE /* LSKPushWebViewController.m */; };
 		917B3E8915BE7AE900060FDE /* LSKPushWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 917B3E8615BE7AE900060FDE /* LSKPushWebViewController.m */; };
+		917B3EAF15BE8ED600060FDE /* LSKMapAnnotation.h in Headers */ = {isa = PBXBuildFile; fileRef = 917B3EA715BE8ED600060FDE /* LSKMapAnnotation.h */; };
+		917B3EB015BE8ED600060FDE /* LSKMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 917B3EA815BE8ED600060FDE /* LSKMapAnnotation.m */; };
+		917B3EB115BE8ED600060FDE /* LSKMapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 917B3EA815BE8ED600060FDE /* LSKMapAnnotation.m */; };
+		917B3EB215BE8ED600060FDE /* LSKMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 917B3EA915BE8ED600060FDE /* LSKMapViewController.h */; };
+		917B3EB315BE8ED600060FDE /* LSKMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 917B3EAA15BE8ED600060FDE /* LSKMapViewController.m */; };
+		917B3EB415BE8ED600060FDE /* LSKMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 917B3EAA15BE8ED600060FDE /* LSKMapViewController.m */; };
+		917B3EB515BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 917B3EAB15BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.h */; };
+		917B3EB615BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 917B3EAC15BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.m */; };
+		917B3EB715BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 917B3EAC15BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.m */; };
+		917B3EB815BE8ED600060FDE /* LSKSingleAnnotationMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 917B3EAD15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.h */; };
+		917B3EB915BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 917B3EAE15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m */; };
+		917B3EBA15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 917B3EAE15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m */; };
 		9183C6C015B909D5001DC406 /* PagedResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 9183C6BE15B909D5001DC406 /* PagedResult.h */; };
 		9183C6C115B909D5001DC406 /* PagedResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9183C6BF15B909D5001DC406 /* PagedResult.m */; };
 		9183C6C215B909D5001DC406 /* PagedResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9183C6BF15B909D5001DC406 /* PagedResult.m */; };
@@ -171,6 +183,14 @@
 		9157669015B939A200E81544 /* LSKCustomTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKCustomTabBarViewController.m; sourceTree = "<group>"; };
 		917B3E8515BE7AE900060FDE /* LSKPushWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKPushWebViewController.h; sourceTree = "<group>"; };
 		917B3E8615BE7AE900060FDE /* LSKPushWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKPushWebViewController.m; sourceTree = "<group>"; };
+		917B3EA715BE8ED600060FDE /* LSKMapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKMapAnnotation.h; sourceTree = "<group>"; };
+		917B3EA815BE8ED600060FDE /* LSKMapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKMapAnnotation.m; sourceTree = "<group>"; };
+		917B3EA915BE8ED600060FDE /* LSKMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKMapViewController.h; sourceTree = "<group>"; };
+		917B3EAA15BE8ED600060FDE /* LSKMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKMapViewController.m; sourceTree = "<group>"; };
+		917B3EAB15BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKMultiAnnotationsMapViewController.h; sourceTree = "<group>"; };
+		917B3EAC15BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKMultiAnnotationsMapViewController.m; sourceTree = "<group>"; };
+		917B3EAD15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKSingleAnnotationMapViewController.h; sourceTree = "<group>"; };
+		917B3EAE15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKSingleAnnotationMapViewController.m; sourceTree = "<group>"; };
 		9183C6BE15B909D5001DC406 /* PagedResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagedResult.h; sourceTree = "<group>"; };
 		9183C6BF15B909D5001DC406 /* PagedResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagedResult.m; sourceTree = "<group>"; };
 		9183C6C415B90ADE001DC406 /* LSKCommonMKTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKCommonMKTableViewController.h; sourceTree = "<group>"; };
@@ -370,6 +390,21 @@
 			path = CustomTab;
 			sourceTree = "<group>";
 		};
+		917B3EA615BE8ED600060FDE /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				917B3EA715BE8ED600060FDE /* LSKMapAnnotation.h */,
+				917B3EA815BE8ED600060FDE /* LSKMapAnnotation.m */,
+				917B3EA915BE8ED600060FDE /* LSKMapViewController.h */,
+				917B3EAA15BE8ED600060FDE /* LSKMapViewController.m */,
+				917B3EAB15BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.h */,
+				917B3EAC15BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.m */,
+				917B3EAD15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.h */,
+				917B3EAE15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		9183C6BD15B909D5001DC406 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +524,7 @@
 		91929A5115B8010100432FE9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				917B3EA615BE8ED600060FDE /* Map */,
 				9157668C15B939A200E81544 /* CustomTab */,
 				91929A8415B80DB400432FE9 /* SegmentsSwitch */,
 				91929A8715B80DB400432FE9 /* PullRefresh */,
@@ -600,6 +636,10 @@
 				91107AE215BD01DA00A2B852 /* LSKPlainWebViewController.h in Headers */,
 				91AC71A315BD2418002006E7 /* DateUtils.h in Headers */,
 				917B3E8715BE7AE900060FDE /* LSKPushWebViewController.h in Headers */,
+				917B3EAF15BE8ED600060FDE /* LSKMapAnnotation.h in Headers */,
+				917B3EB215BE8ED600060FDE /* LSKMapViewController.h in Headers */,
+				917B3EB515BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.h in Headers */,
+				917B3EB815BE8ED600060FDE /* LSKSingleAnnotationMapViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -762,6 +802,10 @@
 				91107AE015BD01DA00A2B852 /* LSKPlainWebViewController.m in Sources */,
 				91AC71A415BD2418002006E7 /* DateUtils.m in Sources */,
 				917B3E8815BE7AE900060FDE /* LSKPushWebViewController.m in Sources */,
+				917B3EB015BE8ED600060FDE /* LSKMapAnnotation.m in Sources */,
+				917B3EB315BE8ED600060FDE /* LSKMapViewController.m in Sources */,
+				917B3EB615BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.m in Sources */,
+				917B3EB915BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -807,6 +851,10 @@
 				91107AE115BD01DA00A2B852 /* LSKPlainWebViewController.m in Sources */,
 				91AC71A515BD2418002006E7 /* DateUtils.m in Sources */,
 				917B3E8915BE7AE900060FDE /* LSKPushWebViewController.m in Sources */,
+				917B3EB115BE8ED600060FDE /* LSKMapAnnotation.m in Sources */,
+				917B3EB415BE8ED600060FDE /* LSKMapViewController.m in Sources */,
+				917B3EB715BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.m in Sources */,
+				917B3EBA15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
