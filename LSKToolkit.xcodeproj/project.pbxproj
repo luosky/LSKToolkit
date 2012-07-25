@@ -39,6 +39,9 @@
 		917B3EB815BE8ED600060FDE /* LSKSingleAnnotationMapViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 917B3EAD15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.h */; };
 		917B3EB915BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 917B3EAE15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m */; };
 		917B3EBA15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 917B3EAE15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m */; };
+		917B3EE515BF925C00060FDE /* UIViewController+Custom.h in Headers */ = {isa = PBXBuildFile; fileRef = 917B3EE315BF925C00060FDE /* UIViewController+Custom.h */; };
+		917B3EE615BF925C00060FDE /* UIViewController+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 917B3EE415BF925C00060FDE /* UIViewController+Custom.m */; };
+		917B3EE715BF925C00060FDE /* UIViewController+Custom.m in Sources */ = {isa = PBXBuildFile; fileRef = 917B3EE415BF925C00060FDE /* UIViewController+Custom.m */; };
 		9183C6C015B909D5001DC406 /* PagedResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 9183C6BE15B909D5001DC406 /* PagedResult.h */; };
 		9183C6C115B909D5001DC406 /* PagedResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9183C6BF15B909D5001DC406 /* PagedResult.m */; };
 		9183C6C215B909D5001DC406 /* PagedResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 9183C6BF15B909D5001DC406 /* PagedResult.m */; };
@@ -191,6 +194,8 @@
 		917B3EAC15BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKMultiAnnotationsMapViewController.m; sourceTree = "<group>"; };
 		917B3EAD15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKSingleAnnotationMapViewController.h; sourceTree = "<group>"; };
 		917B3EAE15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKSingleAnnotationMapViewController.m; sourceTree = "<group>"; };
+		917B3EE315BF925C00060FDE /* UIViewController+Custom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Custom.h"; sourceTree = "<group>"; };
+		917B3EE415BF925C00060FDE /* UIViewController+Custom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Custom.m"; sourceTree = "<group>"; };
 		9183C6BE15B909D5001DC406 /* PagedResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagedResult.h; sourceTree = "<group>"; };
 		9183C6BF15B909D5001DC406 /* PagedResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PagedResult.m; sourceTree = "<group>"; };
 		9183C6C415B90ADE001DC406 /* LSKCommonMKTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKCommonMKTableViewController.h; sourceTree = "<group>"; };
@@ -588,6 +593,8 @@
 				919299A515B7ACC800432FE9 /* UIImageExtendForScale.m */,
 				919299FF15B7B4DF00432FE9 /* UIColor+Expanded.h */,
 				91929A0015B7B4DF00432FE9 /* UIColor+Expanded.m */,
+				917B3EE315BF925C00060FDE /* UIViewController+Custom.h */,
+				917B3EE415BF925C00060FDE /* UIViewController+Custom.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -640,6 +647,7 @@
 				917B3EB215BE8ED600060FDE /* LSKMapViewController.h in Headers */,
 				917B3EB515BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.h in Headers */,
 				917B3EB815BE8ED600060FDE /* LSKSingleAnnotationMapViewController.h in Headers */,
+				917B3EE515BF925C00060FDE /* UIViewController+Custom.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,6 +814,7 @@
 				917B3EB315BE8ED600060FDE /* LSKMapViewController.m in Sources */,
 				917B3EB615BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.m in Sources */,
 				917B3EB915BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m in Sources */,
+				917B3EE615BF925C00060FDE /* UIViewController+Custom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,6 +864,7 @@
 				917B3EB415BE8ED600060FDE /* LSKMapViewController.m in Sources */,
 				917B3EB715BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.m in Sources */,
 				917B3EBA15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m in Sources */,
+				917B3EE715BF925C00060FDE /* UIViewController+Custom.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
