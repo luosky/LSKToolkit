@@ -25,6 +25,20 @@
         [self.webView setDataDetectorTypes:( UIDataDetectorTypeLink)];
         self.webView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         self.webView.delegate = self;
+        
+        //remove the gradient background when overscroll, thanks to http://stackoverflow.com/questions/3009063/remove-gradient-background-from-uiwebview
+        webView.backgroundColor = [UIColor whiteColor];
+        for (UIView* subView in [webView subviews])
+        {
+            if ([subView isKindOfClass:[UIScrollView class]]) {
+                for (UIView* shadowView in [subView subviews])
+                {
+                    if ([shadowView isKindOfClass:[UIImageView class]]) {
+                        [shadowView setHidden:YES];
+                    }
+                }
+            }
+        }
     }
     return self;
 }
