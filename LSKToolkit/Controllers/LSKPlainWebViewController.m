@@ -23,6 +23,7 @@
     if (self) {
         self.webView = [[UIWebView alloc] init];
         [self.webView setDataDetectorTypes:( UIDataDetectorTypeLink)];
+        self.webView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         self.webView.delegate = self;
     }
     return self;
