@@ -18,6 +18,9 @@
 		91107AE015BD01DA00A2B852 /* LSKPlainWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91107ADE15BD01DA00A2B852 /* LSKPlainWebViewController.m */; };
 		91107AE115BD01DA00A2B852 /* LSKPlainWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 91107ADE15BD01DA00A2B852 /* LSKPlainWebViewController.m */; };
 		91107AE215BD01DA00A2B852 /* LSKPlainWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 91107ADF15BD01DA00A2B852 /* LSKPlainWebViewController.h */; };
+		9139781615C0F17C00BB8468 /* LSKBaseTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 9139781415C0F17C00BB8468 /* LSKBaseTableViewController.h */; };
+		9139781715C0F17C00BB8468 /* LSKBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9139781515C0F17C00BB8468 /* LSKBaseTableViewController.m */; };
+		9139781815C0F17C00BB8468 /* LSKBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9139781515C0F17C00BB8468 /* LSKBaseTableViewController.m */; };
 		9157669115B939A200E81544 /* LSKCustomTabBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 9157668D15B939A200E81544 /* LSKCustomTabBar.h */; };
 		9157669215B939A200E81544 /* LSKCustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9157668E15B939A200E81544 /* LSKCustomTabBar.m */; };
 		9157669315B939A200E81544 /* LSKCustomTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9157668E15B939A200E81544 /* LSKCustomTabBar.m */; };
@@ -180,6 +183,8 @@
 		9108EE8815AD5A2400F10B62 /* LSKToolkitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSKToolkitTests.m; sourceTree = "<group>"; };
 		91107ADE15BD01DA00A2B852 /* LSKPlainWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKPlainWebViewController.m; sourceTree = "<group>"; };
 		91107ADF15BD01DA00A2B852 /* LSKPlainWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKPlainWebViewController.h; sourceTree = "<group>"; };
+		9139781415C0F17C00BB8468 /* LSKBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKBaseTableViewController.h; sourceTree = "<group>"; };
+		9139781515C0F17C00BB8468 /* LSKBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKBaseTableViewController.m; sourceTree = "<group>"; };
 		9157668D15B939A200E81544 /* LSKCustomTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKCustomTabBar.h; sourceTree = "<group>"; };
 		9157668E15B939A200E81544 /* LSKCustomTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKCustomTabBar.m; sourceTree = "<group>"; };
 		9157668F15B939A200E81544 /* LSKCustomTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKCustomTabBarViewController.h; sourceTree = "<group>"; };
@@ -540,6 +545,8 @@
 				91107ADF15BD01DA00A2B852 /* LSKPlainWebViewController.h */,
 				917B3E8515BE7AE900060FDE /* LSKPushWebViewController.h */,
 				917B3E8615BE7AE900060FDE /* LSKPushWebViewController.m */,
+				9139781415C0F17C00BB8468 /* LSKBaseTableViewController.h */,
+				9139781515C0F17C00BB8468 /* LSKBaseTableViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -648,6 +655,7 @@
 				917B3EB515BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.h in Headers */,
 				917B3EB815BE8ED600060FDE /* LSKSingleAnnotationMapViewController.h in Headers */,
 				917B3EE515BF925C00060FDE /* UIViewController+Custom.h in Headers */,
+				9139781615C0F17C00BB8468 /* LSKBaseTableViewController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,6 +823,7 @@
 				917B3EB615BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.m in Sources */,
 				917B3EB915BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m in Sources */,
 				917B3EE615BF925C00060FDE /* UIViewController+Custom.m in Sources */,
+				9139781715C0F17C00BB8468 /* LSKBaseTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -865,6 +874,7 @@
 				917B3EB715BE8ED600060FDE /* LSKMultiAnnotationsMapViewController.m in Sources */,
 				917B3EBA15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m in Sources */,
 				917B3EE715BF925C00060FDE /* UIViewController+Custom.m in Sources */,
+				9139781815C0F17C00BB8468 /* LSKBaseTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
