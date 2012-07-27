@@ -38,26 +38,6 @@
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     self.tableView.separatorColor = [UIColor clearColor];
     
-    //后退按钮
-    if ([self.navigationController.viewControllers count] > 1) {
-        UIButton* backNavButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIImage* backNavButtonImage = [UIImage imageNamed:@"nav_button_back.png"];
-        backNavButton.frame = CGRectMake(0, 0, backNavButtonImage.size.width, backNavButtonImage.size.height);
-        [backNavButton setBackgroundImage:backNavButtonImage forState:UIControlStateNormal];
-        [backNavButton addTarget:self.navigationController action:@selector(popViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem* backNavButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backNavButton];
-        [self navigationItem].leftBarButtonItem  = backNavButtonItem;
-    }
-    
-    //右侧home按钮
-    UIButton* homeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage* homeButtonImage = [UIImage imageNamed:@"nav_button_home.png"];
-    homeButton.frame = CGRectMake(0, 0, homeButtonImage.size.width, homeButtonImage.size.height);
-    [homeButton setBackgroundImage:homeButtonImage forState:UIControlStateNormal];
-    [homeButton addTarget:self.navigationController action:@selector(popToRootViewControllerAnimated:) forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* homeButtonItem = [[UIBarButtonItem alloc] initWithCustomView:homeButton];
-    [self navigationItem].rightBarButtonItem  = homeButtonItem;
-    
     [self initInterface];
     [self loadFirstData];
 }

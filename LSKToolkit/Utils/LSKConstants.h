@@ -18,8 +18,10 @@
 typedef void (^LSKArrayBlock)(NSArray* ary, BOOL isCache);
 typedef void (^LSKPagedResultBlock)(PagedResult *result, BOOL isCache);
 
-
 #define HEIGHT_WIHTOUT_NAV_AND_TAB_BAR 367
+#define KEYBOARD_PORTRAIT_HEIGHT 216
+#define KEYBOARD_LANDSCAPE_HEIGHT 162
+
 #define CONSTANT_STATUS_BAR_HEIGHT	20
 #define CONSTANT_NAVIGATION_BAR_HEIGHT	44
 #define CONSTANT_TAB_BAR_HEIGHT	49
