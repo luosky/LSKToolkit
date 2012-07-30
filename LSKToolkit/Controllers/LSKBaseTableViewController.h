@@ -10,7 +10,7 @@
 @interface LSKBaseTableViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic,strong) UITableView                *tableView;
-//以section为key,value为该section里元素的集合,可以是数组,也可以是NSDictionary,只要保证count出来的数等于该section里cell的个数即可.
+//以section为key,value为该section里元素的数组
 @property (nonatomic,strong) NSMutableDictionary        *sectionDatas;
 
 - (NSString*)keyForSection:(int)sectionIndex;
