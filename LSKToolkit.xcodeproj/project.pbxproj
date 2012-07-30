@@ -154,6 +154,9 @@
 		91AC71A315BD2418002006E7 /* DateUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 91AC71A115BD2418002006E7 /* DateUtils.h */; };
 		91AC71A415BD2418002006E7 /* DateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AC71A215BD2418002006E7 /* DateUtils.m */; };
 		91AC71A515BD2418002006E7 /* DateUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 91AC71A215BD2418002006E7 /* DateUtils.m */; };
+		91FD62A815C67CAC00D25174 /* LSKImageLeftRightSubtitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FD62A615C67CAC00D25174 /* LSKImageLeftRightSubtitleCell.m */; };
+		91FD62A915C67CAC00D25174 /* LSKImageLeftRightSubtitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 91FD62A615C67CAC00D25174 /* LSKImageLeftRightSubtitleCell.m */; };
+		91FD62AA15C67CAC00D25174 /* LSKImageLeftRightSubtitleCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 91FD62A715C67CAC00D25174 /* LSKImageLeftRightSubtitleCell.h */; };
 		99EC99BF5DBE4F4189FA2543 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0CAB215C5E431681E7AF55 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -282,6 +285,8 @@
 		91929A8D15B80DB400432FE9 /* LSKCommonPullRefreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKCommonPullRefreshTableViewController.m; sourceTree = "<group>"; };
 		91AC71A115BD2418002006E7 /* DateUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateUtils.h; sourceTree = "<group>"; };
 		91AC71A215BD2418002006E7 /* DateUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DateUtils.m; sourceTree = "<group>"; };
+		91FD62A615C67CAC00D25174 /* LSKImageLeftRightSubtitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKImageLeftRightSubtitleCell.m; sourceTree = "<group>"; };
+		91FD62A715C67CAC00D25174 /* LSKImageLeftRightSubtitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKImageLeftRightSubtitleCell.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -508,6 +513,8 @@
 				91929A2115B7F67000432FE9 /* LSKImageCell.m */,
 				91929A2215B7F67000432FE9 /* LSKImageSubtitleCell.h */,
 				91929A2315B7F67000432FE9 /* LSKImageSubtitleCell.m */,
+				91FD62A615C67CAC00D25174 /* LSKImageLeftRightSubtitleCell.m */,
+				91FD62A715C67CAC00D25174 /* LSKImageLeftRightSubtitleCell.h */,
 				91929A2415B7F67000432FE9 /* LSKImageTitleCell.h */,
 				91929A2515B7F67000432FE9 /* LSKImageTitleCell.m */,
 				91929A2615B7F67000432FE9 /* LSKLoadCell.h */,
@@ -656,6 +663,7 @@
 				917B3EB815BE8ED600060FDE /* LSKSingleAnnotationMapViewController.h in Headers */,
 				917B3EE515BF925C00060FDE /* UIViewController+Custom.h in Headers */,
 				9139781615C0F17C00BB8468 /* LSKBaseTableViewController.h in Headers */,
+				91FD62AA15C67CAC00D25174 /* LSKImageLeftRightSubtitleCell.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,6 +832,7 @@
 				917B3EB915BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m in Sources */,
 				917B3EE615BF925C00060FDE /* UIViewController+Custom.m in Sources */,
 				9139781715C0F17C00BB8468 /* LSKBaseTableViewController.m in Sources */,
+				91FD62A815C67CAC00D25174 /* LSKImageLeftRightSubtitleCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -875,6 +884,7 @@
 				917B3EBA15BE8ED600060FDE /* LSKSingleAnnotationMapViewController.m in Sources */,
 				917B3EE715BF925C00060FDE /* UIViewController+Custom.m in Sources */,
 				9139781815C0F17C00BB8468 /* LSKBaseTableViewController.m in Sources */,
+				91FD62A915C67CAC00D25174 /* LSKImageLeftRightSubtitleCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
