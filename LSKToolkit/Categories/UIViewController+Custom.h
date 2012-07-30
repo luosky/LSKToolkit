@@ -13,4 +13,7 @@
 - (void)addLeftNavButtonWithImageName:(NSString*)imageName target:(id)target action:(SEL)selector;
 - (void)addRightNavButtonWithImageName:(NSString*)imageName target:(id)target action:(SEL)selector;
 
+
+- (void)addLeftNavButtonWithImageName:(NSString*)imageName title:(NSString*)title target:(id)target action:(SEL)selector;
+- (void)addRightNavButtonWithImageName:(NSString*)imageName title:(NSString*)title target:(id)target action:(SEL)selector;
 @end
