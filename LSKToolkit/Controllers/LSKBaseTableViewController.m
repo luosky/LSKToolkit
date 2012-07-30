@@ -46,13 +46,19 @@
 
 #pragma mark - override methods
 
+// 选择cell时默认会触发triggerAction属性对应的方法
 -(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    /*
-    id obj = [self objectForIndexPath:indexPath];
-    //do sth about obj
-     */
+    NSDictionary *obj = [self objectForIndexPath:indexPath];
+    NSString *action = [obj objectForKey:@"triggerAction"];
+    SEL selector = NSSelectorFromString(action);
+    if ([self respondsToSelector:selector]) {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+                [self performSelector:selector];
+        #pragma clang diagnostic pop
+    }
+    
 }
-
 
 - (UITableViewCell *) reuseableCellForTable: (UITableView *) tableView  {
     static NSString *CellIdentifier = @"AZKBaseTableViewCell";
