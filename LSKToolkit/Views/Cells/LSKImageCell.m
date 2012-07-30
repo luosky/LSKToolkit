@@ -8,7 +8,6 @@
 
 #import "LSKImageCell.h"
 #import "LSKConstants.h"
-#import <QuartzCore/QuartzCore.h>
 
 @implementation LSKImageCell
 @synthesize imageButton;
@@ -21,7 +20,7 @@
 
         [imageButton setUserInteractionEnabled:NO];
 	    imageButton.frame = CGRectMake(CELL_IMAGE_PADDING, CELL_IMAGE_PADDING, CELL_AVATAR_IMAGE_WIDTH, CELL_AVATAR_IMAGE_WIDTH);
-        
+        imageButton.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
 //        CALayer* layer = imageButton.layer;
 //        layer.masksToBounds = YES;
 
@@ -46,29 +45,9 @@
         [shadow release];
         */
 		[self.contentView addSubview:imageButton];
-		
-        
-        UIImageView* logoFrameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"almost_head_bg.png"]];
-        logoFrameImageView.center = imageButton.center;
-        [self.contentView insertSubview:logoFrameImageView aboveSubview:imageButton];
     }
     return self;
 }
-
-
-- (void)updateImage:(UIImage*)image
-{
-//	[imageButton setImage:image forSegmentAtIndex:0];
-    [imageButton setBackgroundImage:image forState:UIControlStateNormal];
-    [imageButton setNeedsDisplay];   
-}
-
-- (void)fetchImageWithUrlStr:(NSString*)url
-{
-    [imageButton setImageURLStr:url];
-}
-
-
 
 - (void)prepareForReuse
 {

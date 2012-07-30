@@ -14,6 +14,4 @@
 }
 
 @property(nonatomic,strong)	EGOImageURLSafeButton*				imageButton;
-
-- (void)fetchImageWithUrlStr:(NSString*)url;
 @end
