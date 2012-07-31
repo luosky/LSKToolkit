@@ -10,6 +10,14 @@
 #import "LSKConstants.h"
 @implementation UIViewController (Custom)
 
+- (void)addLeftNavButtonWithTitle:(NSString*)title target:(id)target action:(SEL)selector {
+    [self addNavButtonWithImageName:@"nav_button.png" title:title target:target action:selector atLeftButton:YES];
+}
+
+- (void)addRightNavButtonWithTitle:(NSString*)title target:(id)target action:(SEL)selector {
+    [self addNavButtonWithImageName:@"nav_button.png" title:title target:target action:selector atLeftButton:NO];
+}
+
 - (void)addLeftNavButtonWithImageName:(NSString*)imageName title:(NSString*)title target:(id)target action:(SEL)selector {
     [self addNavButtonWithImageName:imageName title:title target:target action:selector atLeftButton:YES];
 }

@@ -10,6 +10,10 @@
 
 @interface UIViewController (Custom)
 
+- (void)addLeftNavButtonWithTitle:(NSString*)title target:(id)target action:(SEL)selector;
+- (void)addRightNavButtonWithTitle:(NSString*)title target:(id)target action:(SEL)selector;
+
+
 - (void)addLeftNavButtonWithImageName:(NSString*)imageName target:(id)target action:(SEL)selector;
 - (void)addRightNavButtonWithImageName:(NSString*)imageName target:(id)target action:(SEL)selector;
 

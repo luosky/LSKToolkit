@@ -10,7 +10,7 @@
 
 
 @interface NSHTTPCookie (NSHTTPCookie_Utils)
-
+//domain : i.aizheke.com
 +(NSHTTPCookie*)cookieWithKey:(NSString*)key value:(NSString*)value domain:(NSString*) domain;
 + (NSHTTPCookie*)cookieWithKey:(NSString*)key forURLString:(NSString*)url;
 @end
