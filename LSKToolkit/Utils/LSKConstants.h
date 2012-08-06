@@ -11,7 +11,7 @@
 
 #define INT_NUM(i) [NSNumber numberWithInt:i]
 #define FLOAT_NUM(f) [NSNumber numberWithFloat:f]
-#define IS_NOT_BLANK_STR(str) str && [str isKindOfClass:[NSString class]] && [str length] > 0
+#define IS_NOT_BLANK_STR(str) (str && [str isKindOfClass:[NSString class]] && [str length] > 0)
 
 
 //for MKNetwork

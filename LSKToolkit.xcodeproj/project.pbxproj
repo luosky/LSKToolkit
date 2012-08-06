@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2840602715CFC4E5005963E3 /* UIViewController+Navigation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2840602515CFC4E5005963E3 /* UIViewController+Navigation.h */; };
+		2840602815CFC4E5005963E3 /* UIViewController+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2840602615CFC4E5005963E3 /* UIViewController+Navigation.m */; };
+		2840602915CFC4E5005963E3 /* UIViewController+Navigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2840602615CFC4E5005963E3 /* UIViewController+Navigation.m */; };
 		3A487A4797CD4D18913AC52C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F0CAB215C5E431681E7AF55 /* libPods.a */; };
 		9108EE6C15AD5A2400F10B62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9108EE6B15AD5A2400F10B62 /* Foundation.framework */; };
 		9108EE7A15AD5A2400F10B62 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9108EE7915AD5A2400F10B62 /* SenTestingKit.framework */; };
@@ -171,6 +174,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2840602515CFC4E5005963E3 /* UIViewController+Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Navigation.h"; sourceTree = "<group>"; };
+		2840602615CFC4E5005963E3 /* UIViewController+Navigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Navigation.m"; sourceTree = "<group>"; };
 		5F0CAB215C5E431681E7AF55 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		66736BC5E890454F831016D0 /* Pods.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		9108EE6815AD5A2400F10B62 /* libLSKToolkit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLSKToolkit.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -609,6 +614,8 @@
 				91929A0015B7B4DF00432FE9 /* UIColor+Expanded.m */,
 				917B3EE315BF925C00060FDE /* UIViewController+Custom.h */,
 				917B3EE415BF925C00060FDE /* UIViewController+Custom.m */,
+				2840602515CFC4E5005963E3 /* UIViewController+Navigation.h */,
+				2840602615CFC4E5005963E3 /* UIViewController+Navigation.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -664,6 +671,7 @@
 				917B3EE515BF925C00060FDE /* UIViewController+Custom.h in Headers */,
 				9139781615C0F17C00BB8468 /* LSKBaseTableViewController.h in Headers */,
 				91FD62AA15C67CAC00D25174 /* LSKImageLeftRightSubtitleCell.h in Headers */,
+				2840602715CFC4E5005963E3 /* UIViewController+Navigation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -833,6 +841,7 @@
 				917B3EE615BF925C00060FDE /* UIViewController+Custom.m in Sources */,
 				9139781715C0F17C00BB8468 /* LSKBaseTableViewController.m in Sources */,
 				91FD62A815C67CAC00D25174 /* LSKImageLeftRightSubtitleCell.m in Sources */,
+				2840602815CFC4E5005963E3 /* UIViewController+Navigation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -885,6 +894,7 @@
 				917B3EE715BF925C00060FDE /* UIViewController+Custom.m in Sources */,
 				9139781815C0F17C00BB8468 /* LSKBaseTableViewController.m in Sources */,
 				91FD62A915C67CAC00D25174 /* LSKImageLeftRightSubtitleCell.m in Sources */,
+				2840602915CFC4E5005963E3 /* UIViewController+Navigation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
