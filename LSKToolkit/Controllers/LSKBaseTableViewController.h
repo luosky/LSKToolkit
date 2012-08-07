@@ -13,6 +13,7 @@
 //以section为key,value为该section里元素的数组
 @property (nonatomic,strong) NSMutableDictionary        *sectionDatas;
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil style:(UITableViewStyle)tableViewStyle;
 - (NSString*)keyForSection:(int)sectionIndex;
 - (id)objectForIndexPath:(NSIndexPath*)indexPath;
 @end

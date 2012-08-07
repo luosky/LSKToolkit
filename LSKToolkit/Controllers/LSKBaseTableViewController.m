@@ -14,7 +14,19 @@
 @end
 
 @implementation LSKBaseTableViewController
-@synthesize tableView,sectionDatas;
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil style:(UITableViewStyle)tableViewStyle{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:tableViewStyle];
+        self.tableView.delegate = self;
+        self.tableView.dataSource = self;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
@@ -22,14 +34,8 @@
     
     self.sectionDatas = [NSMutableDictionary dictionary];
     
-    //tableview
-    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds)) style:UITableViewStylePlain];
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+    self.tableView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
     [self.view addSubview:self.tableView];
-
 }
 
 #pragma mark - interface methods
@@ -52,10 +58,10 @@
     NSString *action = [obj objectForKey:@"triggerAction"];
     SEL selector = NSSelectorFromString(action);
     if ([self respondsToSelector:selector]) {
-        #pragma clang diagnostic push
-        #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-                [self performSelector:selector];
-        #pragma clang diagnostic pop
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [self performSelector:selector];
+#pragma clang diagnostic pop
     }
     
 }
@@ -76,7 +82,7 @@
     /*
      id obj = [self objectForIndexPath:indexPath];
      //do sth about obj
-     */    
+     */
 }
 
 
@@ -107,7 +113,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-        return [[self.sectionDatas valueForKey:[self keyForSection:section] ] count] ;
+    return [[self.sectionDatas valueForKey:[self keyForSection:section] ] count] ;
 }
 
 
