@@ -39,7 +39,7 @@ static LSKLocationCenter* sharedCLDelegate = nil;
     if (timer)    [timer invalidate];
     
     [locationManager stopUpdatingHeading];
-    [locationManager stopUpdatingLocation];    
+    [locationManager stopUpdatingLocation];
 	locationManager.delegate = nil;
 }
 
@@ -90,10 +90,10 @@ static LSKLocationCenter* sharedCLDelegate = nil;
 #pragma mark -  Interface Methods
 
 + (void) updateLocation{
-    [[self sharedInstance] getCurrentLocation];
+    [[self sharedInstance] updateLocation];
 }
 
-- (void)getCurrentLocation
+- (void)updateLocation
 {
     isUpdating = YES;
     [self.timer invalidate];
@@ -102,13 +102,13 @@ static LSKLocationCenter* sharedCLDelegate = nil;
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:GPS_TIMEOUT_TIME
-                                             target:self 
-                                           selector:@selector(locationManagerDidTimeout:userInfo:) 
-                                           userInfo:nil 
-                                            repeats:false];
+                                                  target:self
+                                                selector:@selector(locationManagerDidTimeout:userInfo:)
+                                                userInfo:nil
+                                                 repeats:false];
 }
 
-#pragma mark - 
+#pragma mark -
 - (void)stopUpdate
 {
     [[self locationManager ] stopUpdatingLocation];
@@ -154,7 +154,7 @@ static LSKLocationCenter* sharedCLDelegate = nil;
     }
 }
 
-- (void)locationManagerDidTimeout:(NSTimer*)aTimer 
+- (void)locationManagerDidTimeout:(NSTimer*)aTimer
                          userInfo:(id)userInfo
 {
     self.timer = nil;
@@ -170,7 +170,7 @@ static LSKLocationCenter* sharedCLDelegate = nil;
             [nc postNotificationName:kLocationCenterUpdateLocationReceived object:location];
             return;
         }
-
+        
     }
     
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];

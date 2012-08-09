@@ -11,8 +11,8 @@
 
 @interface LSKLocationCenter : NSObject <CLLocationManagerDelegate> {
     
-
-
+    
+    
 }
 
 @property (nonatomic,strong)    CLLocationManager*  locationManager;
@@ -21,8 +21,7 @@
 @property (nonatomic,strong)    CLLocation*         lastLocation;
 @property (nonatomic,strong)    NSTimer*            timer;
 + (void) updateLocation;
+- (void) updateLocation;
 + (LSKLocationCenter*)sharedInstance;
-- (void) getCurrentLocation;
-
 @end
 

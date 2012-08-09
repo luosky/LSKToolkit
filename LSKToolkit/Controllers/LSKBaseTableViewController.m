@@ -53,6 +53,7 @@
 #pragma mark - override methods
 
 // 选择cell时默认会触发triggerAction属性对应的方法
+// 也可覆写这个方法按你的方式实现
 -(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary *obj = [self objectForIndexPath:indexPath];
     NSString *action = [obj objectForKey:@"triggerAction"];
