@@ -16,4 +16,9 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil style:(UITableViewStyle)tableViewStyle;
 - (NSString*)keyForSection:(int)sectionIndex;
 - (id)objectForIndexPath:(NSIndexPath*)indexPath;
+
+#pragma mark - override methods
+
+// 选择cell时默认会触发triggerAction属性对应的方法
+-(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 @end

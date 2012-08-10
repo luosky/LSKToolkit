@@ -9,14 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "LSKImageCell.h"
 
-@interface LSKImageSubtitleCell  : UITableViewCell
+@interface LSKImageSubtitleCell  : LSKImageCell
 
-@property(nonatomic,strong)	EGOImageURLSafeButton*				imageButton;
-@property(nonatomic,assign)     CGFloat cellHeight;
 
 
 @property (nonatomic, strong) UILabel*  titleLabel;
 @property (nonatomic, strong) UILabel*  subtitleLabel;
 
-- (void)fetchImageWithUrlStr:(NSString*)url;
 @end

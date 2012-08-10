@@ -53,7 +53,6 @@
 #pragma mark - override methods
 
 // 选择cell时默认会触发triggerAction属性对应的方法
-// 也可覆写这个方法按你的方式实现
 -(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary *obj = [self objectForIndexPath:indexPath];
     NSString *action = [obj objectForKey:@"triggerAction"];
@@ -79,6 +78,11 @@
     return cell;
 }
 
+// overide this method instead of @selector(reuseableCellForTable:) if you have different cells
+- (UITableViewCell *) reuseableCellForTable: (UITableView *) tableView  atIndexPath:(NSIndexPath*)indexPath {
+    [self reuseableCellForTable:tableView atIndexPath:indexPath];
+}
+
 -(void)configureCell:(UITableViewCell*) cell inTableView:(UITableView*)tableView atIndexPath:(NSIndexPath*)indexPath{
     /*
      id obj = [self objectForIndexPath:indexPath];
@@ -101,7 +105,7 @@
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)t cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-    UITableViewCell *cell = [self reuseableCellForTable: t];
+    UITableViewCell *cell = [self reuseableCellForTable: t atIndexPath:indexPath];
     [self configureCell:cell inTableView:t atIndexPath:indexPath];
     return cell;
 }
