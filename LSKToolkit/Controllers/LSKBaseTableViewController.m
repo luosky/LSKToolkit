@@ -80,7 +80,7 @@
 
 // overide this method instead of @selector(reuseableCellForTable:) if you have different cells
 - (UITableViewCell *) reuseableCellForTable: (UITableView *) tableView  atIndexPath:(NSIndexPath*)indexPath {
-    [self reuseableCellForTable:tableView atIndexPath:indexPath];
+    return [self reuseableCellForTable:tableView atIndexPath:indexPath];
 }
 
 -(void)configureCell:(UITableViewCell*) cell inTableView:(UITableView*)tableView atIndexPath:(NSIndexPath*)indexPath{
