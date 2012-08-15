@@ -22,7 +22,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.webView = [[UIWebView alloc] init];
-        [self.webView setDataDetectorTypes:( UIDataDetectorTypeLink)];
+        [self.webView setDataDetectorTypes:( UIDataDetectorTypeLink | UIDataDetectorTypePhoneNumber)];
         self.webView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
         self.webView.delegate = self;
         
@@ -73,7 +73,7 @@
     if ([urlStr isEqualToString:@""]) {
         return;
     }
-
+    
     if ([self.webView isLoading]) {
         [self.webView stopLoading];
     }
@@ -87,10 +87,10 @@
     }
     [req setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];
 	[self.webView loadRequest:req];
-
+    
 }
 
-#pragma mark webview delegate 
+#pragma mark webview delegate
 
 - (void)webViewDidStartLoad:(UIWebView *)aWebView
 {
