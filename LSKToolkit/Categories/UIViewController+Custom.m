@@ -39,8 +39,9 @@
     UIImage* homeButtonImage = [UIImage imageNamed:imageName];
     homeButton.frame = CGRectMake(0, 0, homeButtonImage.size.width, homeButtonImage.size.height);
     [homeButton setBackgroundImage:homeButtonImage forState:UIControlStateNormal];
+    homeButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+    homeButton.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     if (IS_NOT_BLANK_STR(title)) {
-        homeButton.titleLabel.font = [UIFont boldSystemFontOfSize:15];
         [homeButton setTitle:title forState:UIControlStateNormal];
     }
     [homeButton addTarget:target action:selector forControlEvents:UIControlEventTouchUpInside];

@@ -174,6 +174,7 @@
 
 - (void) touchDownAtItemAtIndex:(NSUInteger)itemIndex
 {
+    // Tap the current tab to pop to rootViewController
     if (selectedIndex == itemIndex) {
         NSDictionary* data = [tabBarItems objectAtIndex:selectedIndex];
         UIViewController* viewController = [data objectForKey:@"viewController"];
