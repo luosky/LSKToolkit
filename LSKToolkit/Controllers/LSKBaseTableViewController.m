@@ -133,5 +133,20 @@
 }
 
 
+- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    return nil;
+}
+- (UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    return nil;
+}
+
+- (float)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return [self tableView:tableView viewForHeaderInSection:section].frame.size.height;
+}
+
+- (float)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return [self tableView:tableView viewForFooterInSection:section].frame.size.height;
+}
+
 
 @end
