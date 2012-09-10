@@ -67,6 +67,10 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForTimelineRowAtIndexPath:(NSIndexPath*)indexPath{
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isKindOfClass:[LSKBaseCell class]]) {
+        return [(LSKBaseCell*)cell cellHeight];
+    }
     return CELL_MINI_HEIGHT;
 }
 
