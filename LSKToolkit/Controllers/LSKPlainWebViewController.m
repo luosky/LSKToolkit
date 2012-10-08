@@ -9,6 +9,8 @@
 #import "LSKPlainWebViewController.h"
 #import "SVProgressHUD.h"
 #import "LSKConstants.h"
+#import "UIColor+Expanded.h"
+
 @interface LSKPlainWebViewController ()
 
 @end
@@ -115,6 +117,22 @@
 {
     [self hideProgress];
     self.title = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
+    [self matchBackgroundColorToDocument];
+    
+}
+
+// take from https://github.com/annekate/AKWebView
+- (void)matchBackgroundColorToDocument
+{
+    // Grab the hex value of the document's background color.
+    NSString *rgbString = [self.webView stringByEvaluatingJavaScriptFromString:@"var style = getComputedStyle(document.body,''); style.getPropertyValue('background-color');"];
+    NSLog(@"rgbString : %@",rgbString);
+    // Convert to a UIColor using helper method.
+    UIColor *documentColor = [UIColor colorWithRGBString:rgbString];
+    
+    // Set as background color for the view. Now when you scroll, the areas above and
+    // below the view will match the document.
+    self.webView.backgroundColor = documentColor;
 }
 
 

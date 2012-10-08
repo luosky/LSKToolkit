@@ -362,6 +362,29 @@ static NSMutableDictionary *colorNameCache = nil;
 						   alpha:1.0f];
 }
 
+
++ (UIColor *)colorWithRGBString:(NSString *)string
+{
+    NSString *rgbValuesString = [string stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"rgba()"]];
+    NSArray *rgbValues = [rgbValuesString componentsSeparatedByString:@","];
+    if ([rgbValues count] >= 3) {
+        CGFloat r = [[rgbValues objectAtIndex:0] floatValue];
+        CGFloat g = [[rgbValues objectAtIndex:1] floatValue];
+        CGFloat b = [[rgbValues objectAtIndex:2] floatValue];
+        CGFloat a = 1.0;
+        
+        // alpha value is not present for opaque colors, we need to check for this
+        if ([rgbValues count] == 4) {
+            a = [[rgbValues objectAtIndex:3] floatValue];
+        }
+        return [UIColor colorWithRed:(r/255.0) green:(g/255.0) blue:(b/255.0) alpha:a];
+    } else {
+        NSLog(@"Tried to create a color from an invalid RGB string. Returning a white color.");
+        return [UIColor whiteColor];
+    }
+}
+
+
 // Returns a UIColor by scanning the string for a hex number and passing that to +[UIColor colorWithRGBHex:]
 // Skips any leading whitespace and ignores any trailing characters
 + (UIColor *)colorWithHexString:(NSString *)stringToConvert {
