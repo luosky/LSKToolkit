@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
   s.source_files = 'LSKToolkit/**/*.{h,m}'
   s.resources = "LSKToolkit/Resources/*.png"
-  s.frameworks = 'MessageUI','CoreLocation'
+  s.frameworks = 'MessageUI','CoreLocation','MapKit'
   s.requires_arc = true
 
   s.dependency 'EGOImageLoading'
