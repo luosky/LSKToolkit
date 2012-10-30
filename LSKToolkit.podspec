@@ -6,12 +6,12 @@
 #
 Pod::Spec.new do |s|
   s.name     = 'LSKToolkit'
-  s.version  = '1.0.0'
+  s.version  = '1.0.2'
   s.license  = 'MIT'
   s.summary  = 'A short description of LSKToolkit.'
   s.homepage = 'https://github.com/luosky/LSKToolkit'
   s.author   = { 'Luosky' => 'luosky@gmail.com' }
-  s.source   = { :git => 'https://github.com/luosky/LSKToolkit.git', :commit => '2ce1cbcf5f065b5b4df4ff8129aa5c1144df9c24' }
+  s.source   = { :git => 'https://github.com/luosky/LSKToolkit.git', :commit => '42ab63c70e24e2e3771dfa7281d5caf16cb1d1ac' }
 
   s.description = 'An optional longer description of LSKToolkit.'
   s.platform = :ios
