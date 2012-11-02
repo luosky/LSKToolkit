@@ -5,17 +5,17 @@
 //  Created by Peter Boctor on 1/2/11.
 //
 // Copyright (c) 2011 Peter Boctor
-// 
+//
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
 // in the Software without restriction, including without limitation the rights
 // to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 // copies of the Software, and to permit persons to whom the Software is
 // furnished to do so, subject to the following conditions:
-// 
+//
 // The above copyright notice and this permission notice shall be included in
 // all copies or substantial portions of the Software.
-// 
+//
 // THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 // IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 // FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -45,7 +45,7 @@
 
 - (void) awakeFromNib
 {
-    [self initTabs];    
+    [self initTabs];
 }
 
 - (void)viewDidLoad
@@ -53,7 +53,7 @@
     [super viewDidLoad];
     
     // Create a custom tab bar passing in the number of items, the size of each item and setting ourself as the delegate
-    self.tabBar = [[LSKCustomTabBar alloc] initWithItemCount:self.tabBarItems.count itemSize:CGSizeMake(self.view.frame.size.width/self.tabBarItems.count, self.tabBarHeight) tag:0 delegate:self] ;
+    self.tabBar = [[LSKCustomTabBar alloc] initWithItemCount:self.tabBarItems.count itemSize:CGSizeMake(self.view.frame.size.width/self.tabBarItems.count, [self tabBarHeight]) tag:0 delegate:self] ;
     
     // Place the tab bar at the bottom of our view
     self.tabBar.frame = CGRectMake(0,self.view.frame.size.height-self.tabBarHeight,self.view.frame.size.width, self.tabBarHeight);
@@ -67,7 +67,7 @@
 #pragma mark -
 #pragma mark CustomTabBarDelegate
 
-#pragma mark - need to override 
+#pragma mark - need to override
 - (void) initTabs
 {
 }
@@ -100,10 +100,11 @@
 }
 #pragma mark optional to override
 
-// Return height of the tab without the center rised part. same as self.tabBarHeight if it is not a center rised tabbar. 
-- (CGFloat) lowestTabBarHeight{
-    return [self tabBarHeight];
+- (CGFloat)tabBarHeight{
+    // Return height of the tab without the center rised part if it is a center rised tabbar. same as backgroundImage's height if it is not a center rised tabbar.
+    return [self backgroundImage].size.height;
 }
+
 
 #pragma mark others
 - (UIImage*) imageFor:(LSKCustomTabBar*)tabBar atIndex:(NSUInteger)itemIndex
@@ -156,7 +157,7 @@
     UIGraphicsBeginImageContextWithOptions(tabBarItemSize, NO, 0.0);
     
     // Create a stretchable image using the TabBarSelection image but offset 4 pixels down
-    [[[UIImage imageNamed:@"TabBarSelection.png"] stretchableImageWithLeftCapWidth:4.0 topCapHeight:0] drawInRect:CGRectMake(0, 4.0, tabBarItemSize.width, tabBarItemSize.height-4.0)];  
+    [[[UIImage imageNamed:@"TabBarSelection.png"] stretchableImageWithLeftCapWidth:4.0 topCapHeight:0] drawInRect:CGRectMake(0, 4.0, tabBarItemSize.width, tabBarItemSize.height-4.0)];
     
     // Generate a new image
     UIImage* selectedItemImage = UIGraphicsGetImageFromCurrentImageContext();
@@ -168,7 +169,7 @@
 - (UIImage*) tabBarArrowImage
 {
     return nil;
-//    return [UIImage imageNamed:@"tabbar_mask_semi.png"];
+    //    return [UIImage imageNamed:@"tabbar_mask_semi.png"];
     //  return [UIImage imageNamed:@"TabBarNipple.png"];
 }
 
@@ -192,20 +193,20 @@
         UIView* currentView = [self.view viewWithTag:SELECTED_VIEW_CONTROLLER_TAG];
         [currentView removeFromSuperview];
         [viewController viewDidDisappear:YES];
-
+        
     }
     
     // Get the view controller to show
     data = [tabBarItems objectAtIndex:itemIndex];
     viewController = [data objectForKey:@"viewController"];
-
+    
     if ([viewController isKindOfClass:[UINavigationController class]]) {
         UINavigationController *navController =(UINavigationController*)viewController;
         navController.delegate = self;
     }
     
     // Set the view controller's frame to account for the tab bar
-    viewController.view.frame = CGRectMake(0,0,self.view.bounds.size.width, self.view.bounds.size.height-[self lowestTabBarHeight]);
+    viewController.view.frame = CGRectMake(0,0,self.view.bounds.size.width, self.view.bounds.size.height-[self tabBarHeight]);
     
     // Se the tag so we can find it later
     viewController.view.tag = SELECTED_VIEW_CONTROLLER_TAG;
@@ -215,7 +216,7 @@
     [self.view insertSubview:viewController.view belowSubview:tabBar];
     [viewController viewDidAppear:YES];
     selectedIndex = itemIndex;
-
+    
     // In 1 second glow the selected tab
     //  [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(addGlowTimerFireMethod:) userInfo:[NSNumber numberWithInteger:itemIndex] repeats:NO];
     
@@ -233,7 +234,7 @@
 {
     tabBar.hidden = NO;
     UIView* currentView = [self.view viewWithTag:SELECTED_VIEW_CONTROLLER_TAG];
-    currentView.frame = CGRectMake(0,0,self.view.bounds.size.width, self.view.bounds.size.height-[self lowestTabBarHeight]);
+    currentView.frame = CGRectMake(0,0,self.view.bounds.size.width, self.view.bounds.size.height-[self tabBarHeight]);
 }
 
 - (void)addGlowTimerFireMethod:(NSTimer*)theTimer
@@ -248,38 +249,35 @@
     [tabBar glowItemAtIndex:[[theTimer userInfo] integerValue]];
 }
 
-- (CGFloat)tabBarHeight{
-    return [self backgroundImage].size.height;
-}
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return interfaceOrientation == UIInterfaceOrientationPortrait;
 }
 
 /*
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    // Let the tab bar that we're about to rotate
-    [tabBar willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    
-    // Adjust the current view in prepartion for the new orientation
-    UIView* currentView = [self.view viewWithTag:SELECTED_VIEW_CONTROLLER_TAG];
-    
-    CGFloat width = 0, height = 0;
-    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
-    {
-        width = self.view.window.frame.size.width;
-        height = self.view.window.frame.size.height;
-    }
-    else
-    {
-        width = self.view.window.frame.size.height;
-        height = self.view.window.frame.size.width;
-    }
-    
-    currentView.frame = CGRectMake(0,0,width, height-[self lowestTabBarHeight]);
-}
-*/
+ - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+ {
+ // Let the tab bar that we're about to rotate
+ [tabBar willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+ 
+ // Adjust the current view in prepartion for the new orientation
+ UIView* currentView = [self.view viewWithTag:SELECTED_VIEW_CONTROLLER_TAG];
+ 
+ CGFloat width = 0, height = 0;
+ if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft || toInterfaceOrientation == UIInterfaceOrientationLandscapeRight)
+ {
+ width = self.view.window.frame.size.width;
+ height = self.view.window.frame.size.height;
+ }
+ else
+ {
+ width = self.view.window.frame.size.height;
+ height = self.view.window.frame.size.width;
+ }
+ 
+ currentView.frame = CGRectMake(0,0,width, height-[self lowestTabBarHeight]);
+ }
+ */
 #pragma mark - UINavigationControllerDelegate
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated{
