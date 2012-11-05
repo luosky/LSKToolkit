@@ -9,6 +9,11 @@
 #import "EGOImageURLSafeButton.h"
 
 @implementation EGOImageURLSafeButton
+- (void)fetchImageAtUrlStr:(NSString*)urlStr{
+    if (urlStr&&[urlStr isKindOfClass:[NSString class]] && urlStr.length > 0) {
+        [self setImageURL:[NSURL URLWithString:urlStr]];
+    }
+}
 
 - (void)setImageURLStr:(NSString*)urlStr {
     if (urlStr&&[urlStr isKindOfClass:[NSString class]] && urlStr.length > 0) {

@@ -9,7 +9,7 @@
 #import "EGOImageView.h"
 // url不合法时不会崩溃...
 @interface EGOImageURLSafeView : EGOImageView
-
-- (void)setImageURLStr:(NSString*)urlStr;
+- (void)fetchImageAtUrlStr:(NSString*)urlStr;
+- (void)setImageURLStr:(NSString*)urlStr DEPRECATED_ATTRIBUTE;
 
 @end

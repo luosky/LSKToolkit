@@ -52,7 +52,7 @@
         self.imageView.image = self.image;
     }
     if (self.imageUrl){
-        [self.imageView setImageURLStr:self.imageUrl];
+        [self.imageView fetchImageAtUrlStr:self.imageUrl];
     }
 }
 
