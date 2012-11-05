@@ -31,6 +31,7 @@ typedef enum {
   MKNetworkOperationStateFinished = 3
 } MKNetworkOperationState;
 
+typedef void (^MKNKVoidBlock)(void);
 typedef void (^MKNKProgressBlock)(double progress);
 typedef void (^MKNKResponseBlock)(MKNetworkOperation* completedOperation);
 #if TARGET_OS_IPHONE
@@ -38,6 +39,7 @@ typedef void (^MKNKImageBlock) (UIImage* fetchedImage, NSURL* url, BOOL isInCach
 #elif TARGET_OS_MAC
 typedef void (^MKNKImageBlock) (NSImage* fetchedImage, NSURL* url, BOOL isInCache);
 #endif
+typedef void (^MKNKResponseErrorBlock)(MKNetworkOperation* completedOperation, NSError* error);
 typedef void (^MKNKErrorBlock)(NSError* error);
 
 typedef void (^MKNKAuthBlock)(NSURLAuthenticationChallenge* challenge);
@@ -379,11 +381,36 @@ typedef enum {
  *	This method sets your completion and error blocks. If your operation's response data was previously called,
  *  the completion block will be called almost immediately with the cached response. You can check if the completion 
  *  handler was invoked with a cached data or with real data by calling the isCachedResponse method.
- *
+ *  This method is deprecated in favour of addCompletionHandler:errorHandler: that returns the completedOperation in the error block as well.
+ *  While I will still continue to support this method, I'll remove it completely in a future release.
+ 
  *  @seealso
  *  isCachedResponse
+ *  addCompletionHandler:errorHandler:
  */
--(void) onCompletion:(MKNKResponseBlock) response onError:(MKNKErrorBlock) error;
+-(void) onCompletion:(MKNKResponseBlock) response onError:(MKNKErrorBlock) error DEPRECATED_ATTRIBUTE;
+
+/*!
+ *  @abstract adds a block Handler for completion and error
+ *
+ *  @discussion
+ *	This method sets your completion and error blocks. If your operation's response data was previously called,
+ *  the completion block will be called almost immediately with the cached response. You can check if the completion
+ *  handler was invoked with a cached data or with real data by calling the isCachedResponse method.
+ *
+ *  @seealso
+ *  onCompletion:onError:
+ */
+-(void) addCompletionHandler:(MKNKResponseBlock) response errorHandler:(MKNKResponseErrorBlock) error;
+
+/*!
+ *  @abstract Block Handler for tracking 304 not modified state
+ *
+ *  @discussion
+ *	This method will be called if the server sends a 304 HTTP status for your request.
+ *
+ */
+-(void) onNotModified:(MKNKVoidBlock) notModifiedBlock;
 
 /*!
  *  @abstract Block Handler for tracking upload progress
@@ -491,6 +518,7 @@ typedef enum {
  */
 #if TARGET_OS_IPHONE
 -(UIImage*) responseImage;
+-(void) decompressedResponseImageOfSize:(CGSize) size completionHandler:(void (^)(UIImage *decompressedImage)) imageDecompressionHandler;
 #elif TARGET_OS_MAC
 -(NSImage*) responseImage;
 -(NSXMLDocument*) responseXML;
@@ -542,6 +570,6 @@ typedef enum {
 -(NSString*) uniqueIdentifier;
 
 - (id)initWithURLString:(NSString *)aURLString
-                 params:(NSMutableDictionary *)params
+                 params:(NSDictionary *)params
              httpMethod:(NSString *)method;
 @end

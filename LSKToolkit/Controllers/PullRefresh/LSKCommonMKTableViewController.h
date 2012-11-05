@@ -11,7 +11,7 @@
 #import "LSKConstants.h"
 #import "MKNetworkkit.h"
 /**
-    和CommonTableViewController的区别在于这个用的是MKNetworkKit来进行网络交互
+ 和CommonTableViewController的区别在于这个用的是MKNetworkKit来进行网络交互
  */
 
 @interface LSKCommonMKTableViewController : LSKCommonPullRefreshTableViewController {
@@ -19,7 +19,5 @@
 
 @property (nonatomic,copy)      LSKArrayBlock commonCompleteBlock;
 @property (nonatomic,copy)      MKNKErrorBlock  commonErrorBlock;
-
-//- (MKNKErrorBlock) commonErrorBlock;
-//- (LSKArrayBlock) commonCompleteBlock;
+@property (nonatomic,copy)      MKNKVoidBlock  commonNotModifiedBlock;
 @end

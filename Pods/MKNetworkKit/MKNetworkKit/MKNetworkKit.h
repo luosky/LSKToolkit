@@ -33,9 +33,19 @@
 #if TARGET_OS_IPHONE
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= 60000
+#define DO_GCD_RETAIN_RELEASE 0
+#else
+#define DO_GCD_RETAIN_RELEASE 1
+#endif
 #elif TARGET_OS_MAC
 #import <Cocoa/Cocoa.h>
 #import <AppKit/AppKit.h>
+#if MAC_OS_X_VERSION_MIN_REQUIRED >= 1080
+#define DO_GCD_RETAIN_RELEASE 0
+#else
+#define DO_GCD_RETAIN_RELEASE 1
+#endif
 #endif
 
 #ifdef DEBUG
@@ -49,18 +59,18 @@
 // ALog always displays output regardless of the DEBUG setting
 #define ALog(fmt, ...) {NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);};
 
-#import "NSString+MKNetworkKitAdditions.h"
-#import "NSDictionary+RequestEncoding.h"
-#import "NSDate+RFC1123.h"
-#import "NSData+Base64.h"
+#import "Categories/NSString+MKNetworkKitAdditions.h"
+#import "Categories/NSDictionary+RequestEncoding.h"
+#import "Categories/NSDate+RFC1123.h"
+#import "Categories/NSData+Base64.h"
 
 #if TARGET_OS_IPHONE
-#import "UIAlertView+MKNetworkKitAdditions.h"
+#import "Categories/UIAlertView+MKNetworkKitAdditions.h"
 #elif TARGET_OS_MAC
 #import "Categories/NSAlert+MKNetworkKitAdditions.h"
 #endif
 
-#import "Reachability.h"
+#import "Reachability/Reachability.h"
 
 #import "MKNetworkOperation.h"
 #import "MKNetworkEngine.h"

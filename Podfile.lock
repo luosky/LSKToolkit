@@ -1,19 +1,29 @@
+
 PODS:
-  - EGOCache (0.1.0)
-  - EGOImageLoading (0.0.1.120329):
-    - EGOCache
-  - MBProgressHUD (0.5)
-  - MKNetworkKit (0.83.120720):
-    - Reachability (~> 3.0)
-  - MKNumberBadgeView (0.0.1.120329)
-  - Reachability (3.0.0)
-  - SVProgressHUD (0.7)
-  - VTPG_Log (0.0.1.120719)
+- EGOCache (0.1.0)
+- EGOImageLoading (0.0.1.120329):
+  - EGOCache
+- MBProgressHUD (0.5)
+- MKNetworkKit (0.85.1):
+  - Reachability (~> 3.0)
+- MKNumberBadgeView (0.0.1.120329)
+- Reachability (3.1.0)
+- SVProgressHUD (0.8)
+- VTPG_Log (0.0.1.120719)
 
 DEPENDENCIES:
-  - EGOImageLoading (defined in Podfile)
-  - MBProgressHUD (~> 0.5)
-  - MKNetworkKit (defined in Podfile)
-  - MKNumberBadgeView (defined in Podfile)
-  - SVProgressHUD (~> 0.6)
-  - VTPG_Log (defined in Podfile)
+- EGOImageLoading (defined in Podfile)
+- MBProgressHUD (~> 0.5)
+- MKNetworkKit (= 0.85.1)
+- MKNumberBadgeView (defined in Podfile)
+- SVProgressHUD (~> 0.6)
+- VTPG_Log (defined in Podfile)
+
+SPEC CHECKSUMS:
+  EGOCache: 073460647a96c40ddd93177c3bcf4c1920b385bc
+  MBProgressHUD: b23ee11c42253d6d804e8e0bfabdc334e8b2571f
+  MKNetworkKit: a5c2186c9446a4cacd102aa8578ab7693e230152
+  Reachability: 1c8584c5f26fa776695efef95caaa50402c94cfb
+  SVProgressHUD: 51042a14e3a716efdbdd73cbb2181fb23ee94389
+
+COCOAPODS: 0.15.1
