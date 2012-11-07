@@ -10,4 +10,9 @@
 
 @interface LSKBaseCell : UITableViewCell
 @property (nonatomic, assign) CGFloat cellHeight;
+
+- (void)updateWithEntity:(id)entity;
+
+- (void)updateWithEntity:(id)entity atIndexPath:(NSIndexPath*)indexPath;
+
 @end

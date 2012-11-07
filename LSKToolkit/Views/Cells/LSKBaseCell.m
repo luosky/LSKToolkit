@@ -11,4 +11,11 @@
 @implementation LSKBaseCell
 @synthesize cellHeight;
 
+- (void)updateWithEntity:(id)entity{
+    [self updateWithEntity:entity atIndexPath:nil];
+}
+
+- (void)updateWithEntity:(id)entity atIndexPath:(NSIndexPath*)indexPath{
+    
+}
 @end
