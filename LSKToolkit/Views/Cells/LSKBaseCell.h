@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @interface LSKBaseCell : UITableViewCell
+
 @property (nonatomic, assign) CGFloat cellHeight;
+
+@property (nonatomic,weak) UIViewController *viewController;
+
+- (void)initAppearance;
 
 - (void)updateWithEntity:(id)entity;
 

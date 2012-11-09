@@ -11,6 +11,30 @@
 @implementation LSKBaseCell
 @synthesize cellHeight;
 
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initAppearance];
+    }
+    return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self initAppearance];
+    }
+    return self;
+}
+
+
+- (void)initAppearance{
+    //    self.backgroundView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"cell_bg.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(20, 10, 20, 10)]];
+}
+
+
 - (void)updateWithEntity:(id)entity{
     [self updateWithEntity:entity atIndexPath:nil];
 }
