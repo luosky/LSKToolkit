@@ -12,16 +12,24 @@
 
 @implementation EGOImageRoundedView
 
-
-- (id)initWithImage:(UIImage *)image
-{
-    if (self = [super initWithImage:image]) {
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = 5.0;
     }
     return self;
 }
 
+
+- (id)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.layer.masksToBounds = YES;
+        self.layer.cornerRadius = 5.0;
+    }
+    return self;
+}
 
 /*
 - (void)setImageURL:(NSURL *)aURL {

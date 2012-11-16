@@ -11,16 +11,24 @@
 #import <QuartzCore/QuartzCore.h>
 @implementation EGOImageRoundedButton
 
-
-- (id)initWithPlaceholderImage:(UIImage*)anImage delegate:(id<EGOImageButtonDelegate>)aDelegate {
-	if((self = [super initWithFrame:CGRectZero])) {
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
         self.layer.masksToBounds = YES;
         self.layer.cornerRadius = 5.0;
-	}
-	
-	return self;
+    }
+    return self;
 }
 
+
+- (id)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.layer.masksToBounds = YES;
+        self.layer.cornerRadius = 5.0;
+    }
+    return self;
+}
 
 /*
 - (void)setImageURL:(NSURL *)aURL {
