@@ -80,7 +80,7 @@
         [self.webView stopLoading];
     }
     
-	NSURL* url = [[NSURL alloc]initWithString:urlStr];
+	NSURL* url = [[NSURL alloc]initWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     NSMutableURLRequest* req;
     if (withCache) {
         req = [[NSMutableURLRequest alloc] initWithURL:url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:60];
