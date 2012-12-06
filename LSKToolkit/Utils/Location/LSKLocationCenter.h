@@ -15,6 +15,13 @@
     
 }
 
+
+//LocationCenter 通知频道
+extern NSString * const kLocationCenterUpdateLocationReceived;     //数据是最近5分钟且精确度合乎要求后发布Received通知
+extern NSString * const kLocationCenterUpdateLocationUpdated;     //一获取到地址即发布Updated通知
+extern NSString * const kLocationCenterUpdateLocationFailed;
+
+
 @property (nonatomic,strong)    CLLocationManager*  locationManager;
 @property (nonatomic,assign)    Boolean             isUpdating;
 @property (nonatomic,strong)    CLLocation*         location;

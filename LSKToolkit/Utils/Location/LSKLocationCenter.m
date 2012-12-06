@@ -23,6 +23,11 @@ static LSKLocationCenter* sharedCLDelegate = nil;
 @synthesize timer;
 
 
+//LocationCenter 通知频道
+NSString * const kLocationCenterUpdateLocationReceived = @"kLocationCenterUpdateLocationReceived";
+NSString * const kLocationCenterUpdateLocationUpdated = @"kLocationCenterUpdateLocationUpdated";
+NSString * const kLocationCenterUpdateLocationFailed = @"kLocationCenterUpdateLocationFailed";
+
 - (id)init
 {
  	self = [super init];

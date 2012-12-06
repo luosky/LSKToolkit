@@ -55,11 +55,6 @@ typedef void (^LSKPagedResultBlock)(PagedResult *result, BOOL isCache);
 @interface LSKConstants : NSObject {
 }
 
-//LocationCenter 通知频道
-extern NSString * const kLocationCenterUpdateLocationReceived;
-extern NSString * const kLocationCenterUpdateLocationUpdated;
-extern NSString * const kLocationCenterUpdateLocationFailed;
-
 //
 extern NSString * const kApplicationDidBecomeActiveNotification;
 
