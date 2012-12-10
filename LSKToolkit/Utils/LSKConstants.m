@@ -9,6 +9,9 @@
 #import "LSKConstants.h"
 
 @implementation LSKConstants
+
 NSString* const kApplicationDidBecomeActiveNotification = @"kApplicationDidBecomeActiveNotification";
+NSString* const kApplicationDidFinishLaunchingNotification = @"kApplicationDidFinishLaunchingNotification";
+
 @end
 

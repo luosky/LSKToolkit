@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "PagedResult.h"
 
-#define INT_NUM(i) [NSNumber numberWithInt:i]
-#define FLOAT_NUM(f) [NSNumber numberWithFloat:f]
+#define isIPhone5 ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(640, 1136), [[UIScreen mainScreen] currentMode].size) : NO)
+
 #define IS_NOT_BLANK_STR(str) (str && [str isKindOfClass:[NSString class]] && [str length] > 0)
 
 
@@ -57,5 +57,6 @@ typedef void (^LSKPagedResultBlock)(PagedResult *result, BOOL isCache);
 
 //
 extern NSString * const kApplicationDidBecomeActiveNotification;
+extern NSString * const kApplicationDidFinishLaunchingNotification;
 
 @end
