@@ -376,6 +376,7 @@
         badgeView.tag = TAB_BADGE_START_TAG+index;
         badgeView.alignment = UITextAlignmentCenter;
         [badgeView setFont:[UIFont boldSystemFontOfSize:13]];
+        badgeView.userInteractionEnabled = NO;
         [button addSubview:badgeView];
     }
     
@@ -396,6 +397,7 @@
     if (!badgeView) {
         badgeView = [[UIImageView alloc] initWithFrame:CGRectZero] ;
         badgeView.tag = TAB_BADGE_IMAGE_START_TAG+index;
+        badgeView.userInteractionEnabled = NO;
         [button addSubview:badgeView];
     }
     
