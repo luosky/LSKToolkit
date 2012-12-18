@@ -13,7 +13,7 @@
 //static	CLLocationManager*  _locationManager;
 
 #define GPS_TIMEOUT_TIME        20.0
-#define GPS_ACCURACY_THRESHOLD  2000.0
+#define GPS_ACCURACY_THRESHOLD  1000.0
 
 static LSKLocationCenter* sharedCLDelegate = nil;
 
