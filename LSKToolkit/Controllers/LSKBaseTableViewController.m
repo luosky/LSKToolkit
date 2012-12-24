@@ -52,7 +52,10 @@
 
 #pragma mark - override methods
 
-// 选择cell时默认会触发triggerAction属性对应的方法
+
+// 如果sectionData的数据如下:
+// datas = @{[self keyForSection:0] : @[@{ @"img" : @"icon_user.png" , @"title":@"", @"subtitle":@"点击登录" , @"triggerAction" : @"onSelectedLogin"}]}
+// 则选择cell时默认会触发triggerAction属性对应的方法
 -(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary *obj = [self objectForIndexPath:indexPath];
     NSString *action = [obj objectForKey:@"triggerAction"];
