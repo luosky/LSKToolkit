@@ -140,7 +140,7 @@ NSString * const kLocationCenterUpdateLocationFailed = @"kLocationCenterUpdateLo
     
     //一获取到地址即发布Updated通知
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc postNotificationName:kLocationCenterUpdateLocationUpdated object:newLocation];
+    [nc postNotificationName:kLocationCenterUpdateLocationUpdated object:nil userInfo:@{@"location" : newLocation}];
     
     self.location=newLocation;
 	
@@ -152,7 +152,7 @@ NSString * const kLocationCenterUpdateLocationFailed = @"kLocationCenterUpdateLo
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         @synchronized(self){
             if (isUpdating) {
-                [nc postNotificationName:kLocationCenterUpdateLocationReceived object:newLocation];
+                [nc postNotificationName:kLocationCenterUpdateLocationReceived object:nil userInfo:@{ @"location" : newLocation}];
                 isUpdating = NO;
             }
         }
@@ -172,7 +172,7 @@ NSString * const kLocationCenterUpdateLocationFailed = @"kLocationCenterUpdateLo
         NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
         self.location = nil;
         if ([location horizontalAccuracy] < 10000 && abs(howRecent) < GPS_TIMEOUT_TIME + 5.0) {
-            [nc postNotificationName:kLocationCenterUpdateLocationReceived object:location];
+            [nc postNotificationName:kLocationCenterUpdateLocationReceived object:nil userInfo:@{ @"location" : location}];
             return;
         }
         
@@ -181,7 +181,7 @@ NSString * const kLocationCenterUpdateLocationFailed = @"kLocationCenterUpdateLo
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
     [SVProgressHUD dismissWithError:@"无法获取地理位置" afterDelay:2];
     
-    [nc postNotificationName:kLocationCenterUpdateLocationFailed object:@"请求超时"];
+    [nc postNotificationName:kLocationCenterUpdateLocationFailed object:nil userInfo:@{@"error":@"请求超时"}];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -204,7 +204,7 @@ NSString * const kLocationCenterUpdateLocationFailed = @"kLocationCenterUpdateLo
     
     
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
-    [nc postNotificationName:kLocationCenterUpdateLocationFailed object:@"获取位置出错"];
+    [nc postNotificationName:kLocationCenterUpdateLocationFailed object:nil userInfo:@{@"error":@"获取位置出错"}];
     
     
 }
