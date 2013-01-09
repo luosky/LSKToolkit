@@ -101,8 +101,10 @@ NSString * const kLocationCenterUpdateLocationFailed = @"kLocationCenterUpdateLo
 - (void)updateLocation
 {
     isUpdating = YES;
+    
     [self.timer invalidate];
     self.timer = nil;
+    
     [[self locationManager] startUpdatingLocation];
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
@@ -171,7 +173,7 @@ NSString * const kLocationCenterUpdateLocationFailed = @"kLocationCenterUpdateLo
         NSDate* eventDate = location.timestamp;
         NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
         self.location = nil;
-        if ([location horizontalAccuracy] < 10000 && abs(howRecent) < GPS_TIMEOUT_TIME + 5.0) {
+        if ([location horizontalAccuracy] < 10000 && abs(howRecent) < 2 * 60) {
             [nc postNotificationName:kLocationCenterUpdateLocationReceived object:nil userInfo:@{ @"location" : location}];
             return;
         }
