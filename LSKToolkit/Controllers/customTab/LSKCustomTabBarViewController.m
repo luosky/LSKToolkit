@@ -62,6 +62,16 @@
     // Select the first tab
     [tabBar selectItemAtIndex:0];
     [self touchDownAtItemAtIndex:0];
+    
+    NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(showTabBar) name:kLSKCustomTabBarShowNotification object:nil];
+    [nc addObserver:self selector:@selector(hideTabBar) name:kLSKCustomTabBarHideNotification object:nil];
+    
+}
+
+
+- (void)dealloc{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark -
