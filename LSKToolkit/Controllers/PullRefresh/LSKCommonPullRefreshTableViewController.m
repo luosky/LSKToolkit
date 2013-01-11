@@ -48,8 +48,10 @@
 
 -(void)loadTimelineWithPage:(int)page{
     
-    if(page == 1)
+    if(page <= 1){
         needClear = YES;
+    }
+    
     //    [[ApiEngine sharedInstance] getSubscribeBusinessStatusWithPage:++currentPage OnCompletion:commonCompleteBlock onError:commonErrorBlock];
 }
 
@@ -104,8 +106,9 @@
 #pragma mark - 可以在子类里override以更改相应的特性
 
 -(void)loadFirstData{
+    //    [self reloadTableViewDataSource];
     [self loading];
-    [self performSelector:@selector(reload:) withObject:nil afterDelay:0.2];
+    [self performSelector:@selector(reloadTableViewDataSource) withObject:nil afterDelay:0.1];
     return;
 }
 
@@ -150,7 +153,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:TRUE];   
+    [tableView deselectRowAtIndexPath:indexPath animated:TRUE];
 	
     if (indexPath.section == 1) {
         if(!self.hasNothing) [self more:nil];
@@ -165,10 +168,10 @@
 	
 	if (indexPath.section == 1) {
         if (self.hasNothing) {
-            [self setRoundedBackground:tableView indexPath:indexPath cell:nothingCell];    
+            [self setRoundedBackground:tableView indexPath:indexPath cell:nothingCell];
             return nothingCell;
         }else{
-            return loadCell;    
+            return loadCell;
         }
 	}else{
         UITableViewCell *cell = [self reuseableCellForTable: tableView];
@@ -197,7 +200,7 @@
             if (self.hasNoMore) {
                 return 0;
             }else
-                return 1;    
+                return 1;
         }
         
     }
@@ -208,9 +211,9 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 1) {
-        if(self.hasNothing) 
+        if(self.hasNothing)
             return 80;
-        else 
+        else
             return loadCell.cellHeight;
     }else{
         return [self tableView:tableView heightForTimelineRowAtIndexPath:indexPath];
@@ -235,7 +238,7 @@
 }
 
 #pragma mark -
-#pragma mark EGOTable 
+#pragma mark EGOTable
 
 - (void)reloadTableViewDataSource{
     [super reloadTableViewDataSource];

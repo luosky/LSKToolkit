@@ -59,23 +59,22 @@
         
         [target.timeline addObjectsFromArray:ary];
         
-        if ([ary count] == 0){//附近没有优惠券
+        if ([ary count] == 0){
             if(target.needClear)
-                target.hasNothing = YES;//附近没有优惠券
-            else {
-                target.hasNothing = NO;
-            }
+                target.hasNothing = YES;
             target.hasNoMore = YES;
         }else {
             target.hasNothing = NO;
-            if([ary count] < 20) target.hasNoMore = YES;
-            else target.hasNoMore = NO;
+            target.hasNoMore = NO;
         }
         
         [target.tableView reloadData];
         
-        [target resetLoadingState];
-        [target doneLoadingTableViewData];
+        if (!isCache) {
+            [target resetLoadingState];
+            [target doneLoadingTableViewData];
+        }
+        
         
         target = nil; // 释放self,打破循环retain
     };
