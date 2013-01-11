@@ -19,14 +19,31 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil style:(UITableViewStyle)tableViewStyle{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:tableViewStyle];
-        self.tableView.delegate = self;
-        self.tableView.dataSource = self;
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        [self initAppearanceWithTableViewStyle:tableViewStyle];
     }
     return self;
 }
+
+- (id)initWithCoder:(NSCoder *)aDecoder{
+    if (self=[super initWithCoder:aDecoder]) {
+        [self initAppearance];
+    }
+    return self;
+}
+
+
+- (void)initAppearance{
+    [self initAppearanceWithTableViewStyle:UITableViewStylePlain];
+}
+
+- (void)initAppearanceWithTableViewStyle:(UITableViewStyle)tableViewStyle{
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:tableViewStyle];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+}
+
 
 - (void)viewDidLoad
 {
@@ -36,12 +53,17 @@
     
     self.tableView.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds));
     [self.view addSubview:self.tableView];
+    
 }
 
 #pragma mark - interface methods
 
 - (NSString*)keyForSection:(int)sectionIndex{
     return [NSString stringWithFormat:@"section_%d",sectionIndex];
+}
+
+- (NSMutableArray*)arrayForSection:(int)sectionIndex{
+    return [self.sectionDatas valueForKey:[self keyForSection:sectionIndex] ];
 }
 
 - (id)objectForIndexPath:(NSIndexPath*)indexPath{
@@ -52,10 +74,7 @@
 
 #pragma mark - override methods
 
-
-// 如果sectionData的数据如下:
-// datas = @{[self keyForSection:0] : @[@{ @"img" : @"icon_user.png" , @"title":@"", @"subtitle":@"点击登录" , @"triggerAction" : @"onSelectedLogin"}]}
-// 则选择cell时默认会触发triggerAction属性对应的方法
+// 选择cell时默认会触发triggerAction属性对应的方法
 -(void)didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSDictionary *obj = [self objectForIndexPath:indexPath];
     NSString *action = [obj objectForKey:@"triggerAction"];

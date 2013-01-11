@@ -14,7 +14,10 @@
 @property (nonatomic,strong) NSMutableDictionary        *sectionDatas;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil style:(UITableViewStyle)tableViewStyle;
+
 - (NSString*)keyForSection:(int)sectionIndex;
+
+- (NSMutableArray*)arrayForSection:(int)sectionIndex;
 - (id)objectForIndexPath:(NSIndexPath*)indexPath;
 
 #pragma mark - override methods
