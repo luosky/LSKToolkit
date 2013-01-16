@@ -66,7 +66,7 @@
 
 @end
 
-@implementation UIButton(scale) 
+@implementation UIButton(scale)
 
 - (void) scaleWidth
 {
@@ -80,6 +80,15 @@
     self.frame = currentFrame;
 }
 
+- (CGFloat) scaleHeight{
+    CGFloat originalHeight = self.titleLabel.bounds.size.height;
+    [self.titleLabel scaleWithContent];
+    CGFloat deltaHeight = self.titleLabel.bounds.size.height - originalHeight;
+    CGRect currentFrame = self.frame;
+    currentFrame.size.height += deltaHeight;
+    self.frame = currentFrame;
+    return deltaHeight;
+}
 @end
 
 

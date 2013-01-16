@@ -30,6 +30,7 @@
 @interface UIButton(scale)
 - (void) scaleWidth;
 - (void) scaleWidthWithPadding:(CGFloat) padding;
+- (CGFloat) scaleHeight;
 @end
 
 @interface UILabel (UILabel_Utils)
