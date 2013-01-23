@@ -22,10 +22,10 @@
     if (distance < 60) {
         timestamp = [NSString stringWithFormat:@"%d%@", distance, @"秒前"];
     }
-    else if (distance < 60 * 60) {  
+    else if (distance < 60 * 60) {
         distance = distance / 60;
         timestamp = [NSString stringWithFormat:@"%d%@", distance, @"分钟前"];
-    }  
+    }
     else if (distance < 60 * 60 * 24) {
         distance = distance / 60 / 60;
         timestamp = [NSString stringWithFormat:@"%d%@", distance, @"小时前"];
@@ -34,7 +34,7 @@
         distance = distance / 60 / 60 / 24;
         timestamp = [NSString stringWithFormat:@"%d%@", distance, @"天前"];
     }
-    else if (distance < 60 * 60 * 24 * 7 * 4) {
+    else if (distance < 60 * 60 * 24 * 7 * 5) {
         distance = distance / 60 / 60 / 24 / 7;
         timestamp = [NSString stringWithFormat:@"%d%@", distance, @"周前"];
     }
@@ -43,8 +43,8 @@
         timestamp = [NSString stringWithFormat:@"%d%@", distance, @"月前"];
     }
     else {
-        distance = distance / 60 / 60 / 24 / 365; 
-        timestamp = [NSString stringWithFormat:@"%d%@", distance, @"年前"];        
+        distance = distance / 60 / 60 / 24 / 365;
+        timestamp = [NSString stringWithFormat:@"%d%@", distance, @"年前"];
     }
 	return timestamp;
 }
@@ -61,10 +61,10 @@
     if (distance < 60) {
         timestamp = [NSString stringWithFormat:@"还有%d%@", distance, @"秒"];
     }
-    else if (distance < 60 * 60) {  
+    else if (distance < 60 * 60) {
         distance = distance / 60;
         timestamp = [NSString stringWithFormat:@"还有%d%@", distance, @"分钟"];
-    }  
+    }
     else if (distance < 60 * 60 * 24) {
         distance = distance / 60 / 60;
         timestamp = [NSString stringWithFormat:@"还有%d%@", distance, @"小时"];
@@ -88,10 +88,10 @@
     if (distance < 60) {
         timestamp = [NSString stringWithFormat:@"%d%@", distance, @"秒"];
     }
-    else if (distance < 60 * 60) {  
+    else if (distance < 60 * 60) {
         distance = distance / 60;
         timestamp = [NSString stringWithFormat:@"%d%@", distance, @"分钟"];
-    }  
+    }
     else if (distance < 60 * 60 * 24) {
         distance = distance / 60 / 60;
         timestamp = [NSString stringWithFormat:@"%d%@", distance, @"小时"];
@@ -100,7 +100,7 @@
         distance = distance / 60 / 60 / 24;
         timestamp = [NSString stringWithFormat:@"%d%@", distance, @"天"];
     }
-    else if (distance < 60 * 60 * 24 * 7 * 4) {
+    else if (distance < 60 * 60 * 24 * 7 * 5) {
         distance = distance / 60 / 60 / 24 / 7;
         timestamp = [NSString stringWithFormat:@"%d%@", distance, @"周"];
     }
@@ -109,8 +109,8 @@
         timestamp = [NSString stringWithFormat:@"%d%@", distance, @"月"];
     }
     else {
-        distance = distance / 60 / 60 / 24 / 365; 
-        timestamp = [NSString stringWithFormat:@"%d%@", distance, @"年"];        
+        distance = distance / 60 / 60 / 24 / 365;
+        timestamp = [NSString stringWithFormat:@"%d%@", distance, @"年"];
     }
 	return timestamp;
 }
