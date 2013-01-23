@@ -15,6 +15,10 @@
 
 @implementation LSKBaseTableViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    self = [self initWithNibName:nibNameOrNil bundle:nibBundleOrNil style:UITableViewStylePlain];
+    return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil style:(UITableViewStyle)tableViewStyle{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
