@@ -55,6 +55,7 @@
 - (void) selectItemAtIndex:(NSInteger)index;
 - (void) glowItemAtIndex:(NSInteger)index;
 - (void) removeGlowAtIndex:(NSInteger)index;
+- (BOOL) isGlowingAtIndex:(NSInteger)index;
 - (void) setBadge:(int)badge atIndex:(int)index;
 - (void) setBadgeImage:(UIImage*)image atIndex:(int)index;
 //- (void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration;

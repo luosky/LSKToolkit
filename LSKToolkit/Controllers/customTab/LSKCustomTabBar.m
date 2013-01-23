@@ -173,23 +173,25 @@
 // Add a glow at the bottom of the specified item
 - (void) glowItemAtIndex:(NSInteger)index
 {
-    // Get the right button. We'll use to calculate where to put the glow
-    UIButton* button = [buttons objectAtIndex:index];
-    
-    // Ask the delegate for the glow image
-    UIImage* glowImage = [delegate glowImage];
-    
-    // Create the image view that will hold the glow image
-    UIImageView* glowImageView = [[UIImageView alloc] initWithImage:glowImage];
-    
-    // Center the glow image at the center of the button horizontally and at the bottom of the button vertically
-    glowImageView.frame = CGRectMake(button.frame.size.width/2.0 - glowImage.size.width/2.0, button.frame.origin.y + button.frame.size.height - glowImage.size.height, glowImage.size.width, glowImage.size.height);
-    
-    // Set the glow image view's tag so we can find it later when we want to remove the glow
-    glowImageView.tag = GLOW_IMAGE_TAG;
-    glowImageView.backgroundColor = [UIColor clearColor];
-    // Add the glow image view to the button
-    [button addSubview:glowImageView];
+    if (![self isGlowingAtIndex:index]) {
+        // Get the right button. We'll use to calculate where to put the glow
+        UIButton* button = [buttons objectAtIndex:index];
+        
+        // Ask the delegate for the glow image
+        UIImage* glowImage = [delegate glowImage];
+        
+        // Create the image view that will hold the glow image
+        UIImageView* glowImageView = [[UIImageView alloc] initWithImage:glowImage];
+        
+        // Center the glow image at the center of the button horizontally and at the bottom of the button vertically
+        glowImageView.frame = CGRectMake(button.frame.size.width/2.0 - glowImage.size.width/2.0, button.frame.origin.y + button.frame.size.height - glowImage.size.height, glowImage.size.width, glowImage.size.height);
+        
+        // Set the glow image view's tag so we can find it later when we want to remove the glow
+        glowImageView.tag = GLOW_IMAGE_TAG;
+        glowImageView.backgroundColor = [UIColor clearColor];
+        // Add the glow image view to the button
+        [button addSubview:glowImageView];
+    }
 }
 
 // Remove the glow at the bottom of the specified item
@@ -201,6 +203,13 @@
     UIImageView* glowImageView = (UIImageView*)[button viewWithTag:GLOW_IMAGE_TAG];
     // Remove it from the button
     [glowImageView removeFromSuperview];
+}
+
+- (BOOL) isGlowingAtIndex:(NSInteger)index
+{
+    UIButton* button = [buttons objectAtIndex:index];
+    UIImageView* glowImageView = (UIImageView*)[button viewWithTag:GLOW_IMAGE_TAG];
+    return glowImageView != nil;
 }
 
 - (CGFloat) horizontalLocationFor:(NSUInteger)tabIndex
