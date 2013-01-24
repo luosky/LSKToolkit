@@ -279,7 +279,7 @@
 		91929A3215B7F67000432FE9 /* EGOImageURLSafeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EGOImageURLSafeView.m; sourceTree = "<group>"; };
 		91929A5915B8010300432FE9 /* LSKZoomPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKZoomPictureViewController.h; sourceTree = "<group>"; };
 		91929A5A15B8010300432FE9 /* LSKZoomPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKZoomPictureViewController.m; sourceTree = "<group>"; };
-		91929A5B15B8010300432FE9 /* LSKZoomPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LSKZoomPictureViewController.xib; sourceTree = "<group>"; };
+		91929A5B15B8010300432FE9 /* LSKZoomPictureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LSKZoomPictureViewController.xib; path = ../../Controllers/LSKZoomPictureViewController.xib; sourceTree = "<group>"; };
 		91929A8515B80DB400432FE9 /* LSKSegmentManagingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LSKSegmentManagingViewController.h; sourceTree = "<group>"; };
 		91929A8615B80DB400432FE9 /* LSKSegmentManagingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LSKSegmentManagingViewController.m; sourceTree = "<group>"; };
 		91929A8815B80DB400432FE9 /* EGORefreshTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EGORefreshTableHeaderView.h; sourceTree = "<group>"; };
@@ -320,6 +320,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28F0F1BC16B0E3D200491B0C /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				91929A5B15B8010300432FE9 /* LSKZoomPictureViewController.xib */,
+			);
+			path = xib;
+			sourceTree = "<group>";
+		};
 		9108EE5D15AD5A2300F10B62 = {
 			isa = PBXGroup;
 			children = (
@@ -437,6 +445,7 @@
 		9192996D15B7ACB000432FE9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				28F0F1BC16B0E3D200491B0C /* xib */,
 				9192996E15B7ACB000432FE9 /* EGOTableView */,
 			);
 			path = Resources;
@@ -552,7 +561,6 @@
 				91929A8715B80DB400432FE9 /* PullRefresh */,
 				91929A5915B8010300432FE9 /* LSKZoomPictureViewController.h */,
 				91929A5A15B8010300432FE9 /* LSKZoomPictureViewController.m */,
-				91929A5B15B8010300432FE9 /* LSKZoomPictureViewController.xib */,
 				91107ADE15BD01DA00A2B852 /* LSKPlainWebViewController.m */,
 				91107ADF15BD01DA00A2B852 /* LSKPlainWebViewController.h */,
 				917B3E8515BE7AE900060FDE /* LSKPushWebViewController.h */,
