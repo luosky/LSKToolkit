@@ -50,7 +50,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUIActivityIndicatorView" id="1036212937">
 								<reference key="NSNextResponder" ref="104903674"/>
-								<int key="NSvFlags">292</int>
+								<int key="NSvFlags">301</int>
 								<string key="NSFrame">{{134, 211}, {37, 37}}</string>
 								<reference key="NSSuperview" ref="104903674"/>
 								<reference key="NSWindow"/>
