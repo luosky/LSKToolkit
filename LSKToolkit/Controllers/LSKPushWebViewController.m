@@ -24,6 +24,11 @@
     return RequestShouldStartLoadingResultUndetermined;
 }
 
+- (id)buildNewPushController
+{
+    return [[[self class] alloc] initWithNibName:nil bundle:nil];
+}
+
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSString *absolute_url_string = request.URL.absoluteString;
@@ -41,12 +46,11 @@
     
     if (result == RequestShouldStartLoadingResultUndetermined) {
         if ([[parameters objectForKey:@"need_push"] boolValue]) {
-            LSKPushWebViewController *detail = [[[LSKPushWebViewController class] alloc] initWithNibName:nil bundle:nil];
+            LSKPushWebViewController *detail = [self buildNewPushController];
             NSMutableString *targetUrl = [NSMutableString stringWithString:absolute_url_string];
             [targetUrl replaceOccurrencesOfString:@"need_push=true" withString:@"1=1" options:NSCaseInsensitiveSearch range:NSMakeRange(0, [targetUrl length])];
             [detail loadUrlString:targetUrl];
             [self.navigationController pushViewController:detail animated:YES];
-            
             result = RequestShouldStartLoadingResultNo;
             
         }else if(![scheme isEqualToString:@"http"] && ![scheme isEqualToString:@"https"] ){
@@ -60,9 +64,9 @@
         }
     }
     
-    if (result == RequestShouldStartLoadingResultNo) 
+    if (result == RequestShouldStartLoadingResultNo)
         return NO;
-    else 
+    else
         return YES;
 }
 
