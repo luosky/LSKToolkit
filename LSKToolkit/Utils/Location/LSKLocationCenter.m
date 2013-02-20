@@ -110,7 +110,7 @@ NSString * const kLocationCenterUpdateLocationFailed = @"kLocationCenterUpdateLo
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:GPS_TIMEOUT_TIME
                                                   target:self
-                                                selector:@selector(locationManagerDidTimeout:userInfo:)
+                                                selector:@selector(locationManagerDidTimeout:)
                                                 userInfo:nil
                                                  repeats:false];
 }
@@ -162,24 +162,20 @@ NSString * const kLocationCenterUpdateLocationFailed = @"kLocationCenterUpdateLo
 }
 
 - (void)locationManagerDidTimeout:(NSTimer*)aTimer
-                         userInfo:(id)userInfo
 {
     self.timer = nil;
     [self stopUpdate];
-    
     NSNotificationCenter* nc = [NSNotificationCenter defaultCenter];
     
     if (location) {
         NSDate* eventDate = location.timestamp;
         NSTimeInterval howRecent = [eventDate timeIntervalSinceNow];
-        self.location = nil;
         if ([location horizontalAccuracy] < 10000 && abs(howRecent) < 2 * 60) {
             [nc postNotificationName:kLocationCenterUpdateLocationReceived object:nil userInfo:@{ @"location" : location}];
             return;
         }
         
     }
-    
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeClear];
     [SVProgressHUD dismissWithError:@"无法获取地理位置" afterDelay:2];
     
