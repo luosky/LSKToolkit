@@ -22,6 +22,10 @@
 
 -(id)initWithCenter:(CLLocationCoordinate2D)mapCenter viewDistance:(float)distance;
 -(void)searchPathFromCurrentLocation:(NSString*)dest;
+
+/*
+ MKAnnotation 优先查找MKAnnotation里的subtitile(最好放地址), 若没有则搜索MKAnnotation里的coordinate, 若都没有则搜索title(可以放店名).
+ */
 -(void)searchPathToAnnotation:(id<MKAnnotation>)destAnnotation;
 
 @end
