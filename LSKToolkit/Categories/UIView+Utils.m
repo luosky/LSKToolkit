@@ -89,6 +89,14 @@
     self.frame = currentFrame;
     return deltaHeight;
 }
+
+- (void) compactWidth{
+    CGRect currentFrame = self.frame;
+    CGFloat realWidth= [self.titleLabel.text sizeWithFont:self.titleLabel.font constrainedToSize:CGSizeMake(9999, self.frame.size.height) lineBreakMode:self.titleLabel.lineBreakMode].width ;
+    if (realWidth < self.bounds.size.width) currentFrame.size.width = realWidth;
+    self.frame = currentFrame;
+}
+
 @end
 
 

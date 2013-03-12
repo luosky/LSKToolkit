@@ -31,6 +31,7 @@
 - (void) scaleWidth;
 - (void) scaleWidthWithPadding:(CGFloat) padding;
 - (CGFloat) scaleHeight;
+- (void) compactWidth;
 @end
 
 @interface UILabel (UILabel_Utils)
