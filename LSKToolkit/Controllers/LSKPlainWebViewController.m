@@ -7,6 +7,7 @@
 //
 
 #import "LSKPlainWebViewController.h"
+#import "MBProgressHUD.h"
 #import "SVProgressHUD.h"
 #import "LSKConstants.h"
 #import "UIColor+Expanded.h"
@@ -56,7 +57,7 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
 	[super viewWillDisappear:animated];
-    [SVProgressHUD dismiss];
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 }
 
 
@@ -98,7 +99,7 @@
 {
     if(webViewLoads==0){
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeNone];
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     }
     webViewLoads++;
 }
@@ -108,7 +109,7 @@
     webViewLoads--;
     if(webViewLoads==0){
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-        [SVProgressHUD dismiss];
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }
     
 }
