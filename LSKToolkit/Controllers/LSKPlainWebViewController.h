@@ -10,7 +10,7 @@
 
 @interface LSKPlainWebViewController : UIViewController <UIWebViewDelegate>
 @property (nonatomic,strong) UIWebView *webView;
-@property (nonatomic,assign) int *webViewLoads;
+@property (nonatomic,assign) int webViewLoads;
 
 - (void) loadUrlString: (NSString *)urlStr;
 

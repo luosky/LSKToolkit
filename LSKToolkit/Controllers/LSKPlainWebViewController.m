@@ -17,8 +17,6 @@
 @end
 
 @implementation LSKPlainWebViewController
-@synthesize webView;
-@synthesize webViewLoads;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,8 +28,8 @@
         self.webView.delegate = self;
         
         //remove the gradient background when overscroll, thanks to http://stackoverflow.com/questions/3009063/remove-gradient-background-from-uiwebview
-        webView.backgroundColor = [UIColor whiteColor];
-        for (UIView* subView in [webView subviews])
+        self.webView.backgroundColor = [UIColor whiteColor];
+        for (UIView* subView in [self.webView subviews])
         {
             if ([subView isKindOfClass:[UIScrollView class]]) {
                 for (UIView* shadowView in [subView subviews])
@@ -56,6 +54,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
+    //    NSLog(@"viewWillDisappear");
 	[super viewWillDisappear:animated];
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 }
@@ -97,29 +96,32 @@
 
 - (void)webViewDidStartLoad:(UIWebView *)aWebView
 {
-    if(webViewLoads==0){
+    //    NSLog(@"%@",@"webviewDidStartLoad");
+    if(self.webViewLoads==0){
         [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     }
-    webViewLoads++;
+    self.webViewLoads++;
+    //    NSLog(@"webViewLoads : %d ", self.webViewLoads);
 }
 
 - (void) hideProgress {
-    
-    webViewLoads--;
-    if(webViewLoads==0){
+    //    NSLog(@"hidepgrgress");
+    self.webViewLoads--;
+    if(self.webViewLoads==0){
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     }
-    
+    //    NSLog(@"webViewLoads : %d ", self.webViewLoads);
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)aWebView
 {
+    //    NSLog(@"webViewDidFinishLoad");
     [self hideProgress];
     self.title = [self.webView stringByEvaluatingJavaScriptFromString:@"document.title"];
     [self matchBackgroundColorToDocument];
-    
+    //    NSLog(@"webViewLoads : %d ", self.webViewLoads);
 }
 
 // take from https://github.com/annekate/AKWebView
@@ -139,7 +141,7 @@
 
 - (void)webView:(UIWebView *)aWebView didFailLoadWithError:(NSError *)error
 {
-    
+    NSLog(@"error :%@",error);
     [self hideProgress];
 	if([error code] == NSURLErrorCancelled){
         
