@@ -381,7 +381,7 @@
     if (!badgeView) {
         int width = 30;
         
-        badgeView = [[MKNumberBadgeView alloc] initWithFrame:CGRectMake(CGRectGetWidth(button.frame) - width, 0, width, width)];
+        badgeView = [[MKNumberBadgeView alloc] initWithFrame:CGRectMake(button.frame.size.width / 2, -5, width, width)];
         badgeView.tag = TAB_BADGE_START_TAG+index;
         badgeView.alignment = UITextAlignmentCenter;
         [badgeView setFont:[UIFont boldSystemFontOfSize:13]];
