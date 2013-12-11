@@ -26,6 +26,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "EGOImageLoader.h"
+
 @protocol EGOImageLoadConnectionDelegate;
 
 @interface EGOImageLoadConnection : NSObject {
@@ -35,7 +37,7 @@
 	NSMutableData* _responseData;
 	NSURLConnection* _connection;
 	NSTimeInterval _timeoutInterval;
-	
+	int _fileSize;
 	id<EGOImageLoadConnectionDelegate> _delegate;
 }
 
@@ -60,5 +62,8 @@
 
 @protocol EGOImageLoadConnectionDelegate<NSObject>
 - (void)imageLoadConnectionDidFinishLoading:(EGOImageLoadConnection *)connection;
-- (void)imageLoadConnection:(EGOImageLoadConnection *)connection didFailWithError:(NSError *)error;	
+- (void)imageLoadConnection:(EGOImageLoadConnection *)connection didFailWithError:(NSError *)error;
+@optional
+- (BOOL)imageLoadConnectionNeedProgress:(EGOImageLoadConnection*)connection;
+- (void)imageLoadConnection:(EGOImageLoadConnection*)connection progress:(float)progress;
 @end

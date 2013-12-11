@@ -27,14 +27,15 @@
 #import "EGOImageLoader.h"
 #import "EGOImageLoadConnection.h"
 #import "EGOCache.h"
+#import "NSString+MD5.h"
 
 static EGOImageLoader* __imageLoader;
 
 inline static NSString* keyForURL(NSURL* url, NSString* style) {
 	if(style) {
-		return [NSString stringWithFormat:@"EGOImageLoader-%u-%u", [[url description] hash], [style hash]];
+		return [NSString stringWithFormat:@"EGOImageLoader-%@-%@", [[url description] md5Hash], [style md5Hash]];
 	} else {
-		return [NSString stringWithFormat:@"EGOImageLoader-%u", [[url description] hash]];
+		return [NSString stringWithFormat:@"EGOImageLoader-%@", [[url description] md5Hash]];
 	}
 }
 
@@ -49,6 +50,7 @@ inline static NSString* keyForURL(NSURL* url, NSString* style) {
 #if __EGOIL_USE_NOTIF
 	#define kImageNotificationLoaded(s) [@"kEGOImageLoaderNotificationLoaded-" stringByAppendingString:keyForURL(s, nil)]
 	#define kImageNotificationLoadFailed(s) [@"kEGOImageLoaderNotificationLoadFailed-" stringByAppendingString:keyForURL(s, nil)]
+	#define kImageNotificationLoadProgress(s) [@"kEGOImageLoaderNotificationLoadProgress-" stringByAppendingString:keyForURL(s, nil)]
 #endif
 
 @interface EGOImageLoader ()
@@ -60,13 +62,13 @@ inline static NSString* keyForURL(NSURL* url, NSString* style) {
 @implementation EGOImageLoader
 @synthesize currentConnections=_currentConnections;
 
++ (void)initialize {
+	if (self == [EGOImageLoader class]) {
+        __imageLoader = [[self class] new];
+    }
+}
+
 + (EGOImageLoader*)sharedImageLoader {
-	@synchronized(self) {
-		if(!__imageLoader) {
-			__imageLoader = [[[self class] alloc] init];
-		}
-	}
-	
 	return __imageLoader;
 }
 
@@ -86,7 +88,7 @@ inline static NSString* keyForURL(NSURL* url, NSString* style) {
 }
 
 - (EGOImageLoadConnection*)loadingConnectionForURL:(NSURL*)aURL {
-	EGOImageLoadConnection* connection = [[self.currentConnections objectForKey:aURL] retain];
+	EGOImageLoadConnection* connection = [[currentConnections objectForKey:aURL] retain];
 	if(!connection) return nil;
 	else return [connection autorelease];
 }
@@ -133,7 +135,7 @@ inline static NSString* keyForURL(NSURL* url, NSString* style) {
 		[currentConnections setObject:connection forKey:aURL];
 		self.currentConnections = [[currentConnections copy] autorelease];
 		[connectionsLock unlock];
-		[connection performSelector:@selector(start) withObject:nil afterDelay:0.01];
+        [connection performSelector:@selector(start) withObject:nil afterDelay:0.01 inModes:[NSArray arrayWithObject:NSRunLoopCommonModes]];
 		[connection release];
 		
 		return connection;
@@ -151,6 +153,10 @@ inline static NSString* keyForURL(NSURL* url, NSString* style) {
 	if([observer respondsToSelector:@selector(imageLoaderDidFailToLoad:)]) {
 		[[NSNotificationCenter defaultCenter] addObserver:observer selector:@selector(imageLoaderDidFailToLoad:) name:kImageNotificationLoadFailed(aURL) object:self];
 	}
+    
+    if ([observer respondsToSelector:@selector(imageLoaderProgress:)]) {
+        [[NSNotificationCenter defaultCenter] addObserver:observer selector:@selector(imageLoaderProgress:) name:kImageNotificationLoadProgress(aURL) object:nil];
+    }
 
 	[self loadImageForURL:aURL];
 }
@@ -168,6 +174,16 @@ inline static NSString* keyForURL(NSURL* url, NSString* style) {
 	}
 }
 
+- (void)preCacheImage:(UIImage*)image forURL:(NSURL*)aURL {
+    if (image && aURL) {
+        EGOCache *cache = [EGOCache currentCache];
+        NSString *key = keyForURL(aURL, nil);
+        if (![cache imageForKey:key]) {
+            [cache setImage:image forKey:key];
+        }
+    }
+}
+
 - (void)removeObserver:(id<EGOImageLoaderObserver>)observer {
 	[[NSNotificationCenter defaultCenter] removeObserver:observer name:nil object:self];
 }
@@ -175,6 +191,7 @@ inline static NSString* keyForURL(NSURL* url, NSString* style) {
 - (void)removeObserver:(id<EGOImageLoaderObserver>)observer forURL:(NSURL*)aURL {
 	[[NSNotificationCenter defaultCenter] removeObserver:observer name:kImageNotificationLoaded(aURL) object:self];
 	[[NSNotificationCenter defaultCenter] removeObserver:observer name:kImageNotificationLoadFailed(aURL) object:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:observer name:kImageNotificationLoadProgress(aURL) object:nil];
 }
 
 #endif
@@ -289,6 +306,21 @@ inline static NSString* keyForURL(NSURL* url, NSString* style) {
 	#endif
 
 	[self cleanUpConnection:connection];
+}
+
+
+- (BOOL)imageLoadConnectionNeedProgress:(EGOImageLoadConnection*)connection{
+    return YES;
+}
+
+- (void)imageLoadConnection:(EGOImageLoadConnection*)connection progress:(float)progress{
+#if __EGOIL_USE_NOTIF
+    NSNotification* notification = [NSNotification notificationWithName:kImageNotificationLoadProgress(connection.imageURL)
+                                                                 object:nil
+                                                               userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@(progress),@"progress",connection.imageURL,@"imageURL",nil]];
+    
+    [[NSNotificationCenter defaultCenter] performSelectorOnMainThread:@selector(postNotification:) withObject:notification waitUntilDone:YES];
+#endif
 }
 
 #if __EGOIL_USE_BLOCKS

@@ -7,7 +7,6 @@
 //
 
 #import "LSKCommonMKTableViewController.h"
-#import "VTPG_LogExpr.h"
 #import "SVProgressHUD.h"
 
 @interface LSKCommonMKTableViewController ()
@@ -54,7 +53,6 @@
             [target.timeline removeAllObjects];
         }
         
-        LOG_EXPR(isCache);
         [target handleCachedResult:ary isCache:isCache];
         
         [target.timeline addObjectsFromArray:ary];

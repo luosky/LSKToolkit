@@ -39,9 +39,14 @@
 #error MKNetworkKit is ARC only. Either turn on ARC for the project or use -fobjc-arc flag
 #endif
 
+OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data,
+                                 SecIdentityRef *outIdentity,
+                                 SecTrustRef *outTrust,
+                                 CFStringRef keyPassword);
+
 @interface MKNetworkOperation (/*Private Methods*/)
 @property (strong, nonatomic) NSURLConnection *connection;
-@property (strong, nonatomic) NSString *uniqueId;
+@property (copy, nonatomic) NSString *uniqueId;
 @property (strong, nonatomic) NSMutableURLRequest *request;
 @property (strong, nonatomic) NSHTTPURLResponse *response;
 
@@ -49,8 +54,8 @@
 @property (strong, nonatomic) NSMutableArray *filesToBePosted;
 @property (strong, nonatomic) NSMutableArray *dataToBePosted;
 
-@property (strong, nonatomic) NSString *username;
-@property (strong, nonatomic) NSString *password;
+@property (copy, nonatomic) NSString *username;
+@property (copy, nonatomic) NSString *password;
 
 @property (nonatomic, strong) NSMutableArray *responseBlocks;
 @property (nonatomic, strong) NSMutableArray *errorBlocks;
@@ -71,8 +76,10 @@
 @property (nonatomic, assign) NSInteger startPosition;
 
 @property (nonatomic, strong) NSMutableArray *downloadStreams;
-@property (nonatomic, strong) NSData *cachedResponse;
+@property (nonatomic, copy) NSData *cachedResponse;
 @property (nonatomic, copy) MKNKResponseBlock cacheHandlingBlock;
+
+@property (nonatomic, assign) SecTrustRef serverTrust;
 
 #if TARGET_OS_IPHONE
 @property (nonatomic, assign) UIBackgroundTaskIdentifier backgroundTaskId;
@@ -284,7 +291,7 @@
 
 -(MKNetworkOperationState) state {
   
-  return _state;
+  return (MKNetworkOperationState)_state;
 }
 
 -(void) setState:(MKNetworkOperationState)newState {
@@ -326,7 +333,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
-  [encoder encodeInteger:self.stringEncoding forKey:@"stringEncoding"];
+  [encoder encodeInteger:(NSInteger)self.stringEncoding forKey:@"stringEncoding"];
   [encoder encodeInteger:_postDataEncoding forKey:@"postDataEncoding"];
   
   [encoder encodeObject:self.uniqueId forKey:@"uniqueId"];
@@ -338,12 +345,16 @@
   [encoder encodeObject:self.username forKey:@"username"];
   [encoder encodeObject:self.password forKey:@"password"];
   [encoder encodeObject:self.clientCertificate forKey:@"clientCertificate"];
-  
+  [encoder encodeObject:self.clientCertificatePassword forKey:@"clientCertificatePassword"];
+  [encoder encodeBool:self.shouldContinueWithInvalidCertificate forKey:@"shouldContinueWithInvalidCertificate"];
+#if TARGET_OS_IPHONE
+  [encoder encodeObject:self.localNotification forKey:@"localNotification"];
+#endif
   self.state = MKNetworkOperationStateReady;
   [encoder encodeInt32:_state forKey:@"state"];
   [encoder encodeBool:self.isCancelled forKey:@"isCancelled"];
   [encoder encodeObject:self.mutableData forKey:@"mutableData"];
-  [encoder encodeInteger:self.downloadedDataSize forKey:@"downloadedDataSize"];
+  [encoder encodeInteger:(NSInteger)self.downloadedDataSize forKey:@"downloadedDataSize"];
   [encoder encodeObject:self.downloadStreams forKey:@"downloadStreams"];
   [encoder encodeInteger:self.startPosition forKey:@"startPosition"];
   [encoder encodeInteger:self.credentialPersistence forKey:@"credentialPersistence"];
@@ -353,7 +364,7 @@
 {
   self = [super init];
   if (self) {
-    [self setStringEncoding:[decoder decodeIntegerForKey:@"stringEncoding"]];
+    [self setStringEncoding:(NSStringEncoding)[decoder decodeIntegerForKey:@"stringEncoding"]];
     _postDataEncoding = (MKNKPostDataEncodingType) [decoder decodeIntegerForKey:@"postDataEncoding"];
     self.request = [decoder decodeObjectForKey:@"request"];
     self.uniqueId = [decoder decodeObjectForKey:@"uniqueId"];
@@ -365,7 +376,11 @@
     self.username = [decoder decodeObjectForKey:@"username"];
     self.password = [decoder decodeObjectForKey:@"password"];
     self.clientCertificate = [decoder decodeObjectForKey:@"clientCertificate"];
-    [self setState:[decoder decodeInt32ForKey:@"state"]];
+    self.clientCertificatePassword = [decoder decodeObjectForKey:@"clientCertificatePassword"];
+#if TARGET_OS_IPHONE
+    self.localNotification = [decoder decodeObjectForKey:@"localNotification"];
+#endif
+    [self setState:(MKNetworkOperationState)[decoder decodeInt32ForKey:@"state"]];
     self.isCancelled = [decoder decodeBoolForKey:@"isCancelled"];
     self.mutableData = [decoder decodeObjectForKey:@"mutableData"];
     self.downloadedDataSize = [decoder decodeIntegerForKey:@"downloadedDataSize"];
@@ -608,7 +623,9 @@
   
   [displayString appendFormat:@" \"%@\"",  self.url];
   
-  if ([self.request.HTTPMethod isEqualToString:@"POST"] || [self.request.HTTPMethod isEqualToString:@"PUT"]) {
+  if ([self.request.HTTPMethod isEqualToString:@"POST"] ||
+      [self.request.HTTPMethod isEqualToString:@"PUT"] ||
+      [self.request.HTTPMethod isEqualToString:@"PATCH"]) {
     
     NSString *option = [self.filesToBePosted count] == 0 ? @"-d" : @"-F";
     if(self.postDataEncoding == MKNKPostDataEncodingTypeURL) {
@@ -792,7 +809,9 @@
   
   if(!self.isCancelled) {
     
-    if (([self.request.HTTPMethod isEqualToString:@"POST"] || [self.request.HTTPMethod isEqualToString:@"PUT"]) && !self.request.HTTPBodyStream) {
+    if (([self.request.HTTPMethod isEqualToString:@"POST"] ||
+         [self.request.HTTPMethod isEqualToString:@"PUT"] ||
+         [self.request.HTTPMethod isEqualToString:@"PATCH"]) && !self.request.HTTPBodyStream) {
       
       [self.request setHTTPBody:[self bodyData]];
     }
@@ -826,7 +845,7 @@
 
 - (BOOL)isReady {
   
-  return (self.state == MKNetworkOperationStateReady);
+  return (self.state == MKNetworkOperationStateReady && [super isReady]);
 }
 
 - (BOOL)isFinished
@@ -903,9 +922,59 @@
   [self endBackgroundTask];
 }
 
+// https://developer.apple.com/library/mac/#documentation/security/conceptual/CertKeyTrustProgGuide/iPhone_Tasks/iPhone_Tasks.html
+OSStatus extractIdentityAndTrust(CFDataRef inPKCS12Data,        // 5
+                                 SecIdentityRef *outIdentity,
+                                 SecTrustRef *outTrust,
+                                 CFStringRef keyPassword)
+{
+  OSStatus securityError = errSecSuccess;
+  
+  
+  const void *keys[] =   { kSecImportExportPassphrase };
+  const void *values[] = { keyPassword };
+  CFDictionaryRef optionsDictionary = NULL;
+  
+  /* Create a dictionary containing the passphrase if one
+   was specified.  Otherwise, create an empty dictionary. */
+  optionsDictionary = CFDictionaryCreate(
+                                         NULL, keys,
+                                         values, (keyPassword ? 1 : 0),
+                                         NULL, NULL);  // 6
+  
+  CFArrayRef items = NULL;
+  securityError = SecPKCS12Import(inPKCS12Data,
+                                  optionsDictionary,
+                                  &items);                    // 7
+  
+  
+  //
+  if (securityError == 0) {                                   // 8
+    CFDictionaryRef myIdentityAndTrust = CFArrayGetValueAtIndex (items, 0);
+    const void *tempIdentity = NULL;
+    tempIdentity = CFDictionaryGetValue (myIdentityAndTrust,
+                                         kSecImportItemIdentity);
+    CFRetain(tempIdentity);
+    *outIdentity = (SecIdentityRef)tempIdentity;
+    const void *tempTrust = NULL;
+    tempTrust = CFDictionaryGetValue (myIdentityAndTrust, kSecImportItemTrust);
+    
+    CFRetain(tempTrust);
+    *outTrust = (SecTrustRef)tempTrust;
+  }
+  
+  if (optionsDictionary)
+    CFRelease(optionsDictionary);                           // 9
+  
+  if (items)
+    CFRelease(items);
+  
+  return securityError;
+}
+
 - (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
   
-  if ([challenge previousFailureCount] == 0) {
+  if (challenge.previousFailureCount == 0) {
     
     if (((challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodDefault) ||
          (challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodHTTPBasic) ||
@@ -923,50 +992,71 @@
     }
     else if ((challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodClientCertificate) && self.clientCertificate) {
       
-      NSData *certData = [[NSData alloc] initWithContentsOfFile:self.clientCertificate];
+      NSError *error = nil;
+      NSData *certData = [[NSData alloc] initWithContentsOfFile:self.clientCertificate options:0 error:&error];
       
-#warning method not implemented. Don't use client certicate authentication for now.
-      SecIdentityRef myIdentity = nil;  // ???
-      
-      SecCertificateRef myCert = SecCertificateCreateWithData(NULL, (__bridge CFDataRef)certData);
-      SecCertificateRef certArray[1] = { myCert };
-      CFArrayRef myCerts = CFArrayCreate(NULL, (void *)certArray, 1, NULL);
-      CFRelease(myCert);
-      NSURLCredential *credential = [NSURLCredential credentialWithIdentity:myIdentity
-                                                               certificates:(__bridge NSArray *)myCerts
-                                                                persistence:NSURLCredentialPersistencePermanent];
-      CFRelease(myCerts);
-      [challenge.sender useCredential:credential forAuthenticationChallenge:challenge];
+      SecIdentityRef identity;
+      SecTrustRef trust;
+      OSStatus status = extractIdentityAndTrust((__bridge CFDataRef) certData, &identity, &trust, (__bridge CFStringRef) self.clientCertificatePassword);
+      if(status == errSecSuccess) {
+        SecCertificateRef certificate;
+        SecIdentityCopyCertificate(identity, &certificate);
+        const void *certs[] = { certificate };
+        CFArrayRef certsArray = CFArrayCreate(NULL, certs, 1, NULL);
+        NSArray *certificatesForCredential = (__bridge NSArray *)certsArray;
+        NSURLCredential *credential = [NSURLCredential credentialWithIdentity:identity
+                                                                 certificates:certificatesForCredential
+                                                                  persistence:NSURLCredentialPersistencePermanent];
+        [challenge.sender useCredential:credential forAuthenticationChallenge:challenge];
+        CFRelease(identity);
+        CFRelease(certificate);
+        CFRelease(certsArray);
+      } else {
+        [challenge.sender cancelAuthenticationChallenge:challenge];
+      }
     }
     else if (challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust) {
-#warning method not tested. proceed at your own risk
-      SecTrustRef serverTrust = [[challenge protectionSpace] serverTrust];
-      SecTrustResultType result;
-      SecTrustEvaluate(serverTrust, &result);
       
-      if(result == kSecTrustResultProceed) {
+      if(challenge.previousFailureCount < 5) {
         
-        [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
-      }
-      else if(result == kSecTrustResultConfirm) {
+        self.serverTrust = challenge.protectionSpace.serverTrust;
+        SecTrustResultType result;
+        SecTrustEvaluate(self.serverTrust, &result);
         
-        // ask user
-        BOOL userOkWithWrongCert = NO; // (ACTUALLY CHEAT., DON'T BE A F***ING BROWSER, USERS ALWAYS TAP YES WHICH IS RISKY)
-        if(userOkWithWrongCert) {
+        if(result == kSecTrustResultProceed ||
+           result == kSecTrustResultUnspecified || //The cert is valid, but user has not explicitly accepted/denied. Ok to proceed (Ch 15: iOS PTL :Pg 269)
+           result == kSecTrustResultRecoverableTrustFailure //The cert is invalid, but is invalid because of name mismatch. Ok to proceed (Ch 15: iOS PTL :Pg 269)
+           ) {
           
-          // Cert not trusted, but user is OK with that
           [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
-        } else {
-          
-          // Cert not trusted, and user is not OK with that. Don't proceed
-          [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
         }
-      }
-      else {
+        else if(result == kSecTrustResultConfirm) {
+          
+          if(self.shouldContinueWithInvalidCertificate) {
+            
+            // Cert not trusted, but user is OK with that
+            DLog(@"Certificate is not trusted, but self.shouldContinueWithInvalidCertificate is YES");
+            [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
+          } else {
+            
+            DLog(@"Certificate is not trusted, continuing without credentials. Might result in 401 Unauthorized");
+            [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+          }
+        }
+        else {
+          
+          // invalid or revoked certificate
+          if(self.shouldContinueWithInvalidCertificate) {
+            DLog(@"Certificate is invalid, but self.shouldContinueWithInvalidCertificate is YES");
+            [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
+          } else {
+            DLog(@"Certificate is invalid, continuing without credentials. Might result in 401 Unauthorized");
+            [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+          }
+        }
+      } else {
         
-        // invalid or revoked certificate
-        [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust] forAuthenticationChallenge:challenge];
-        //[challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+        [challenge.sender cancelAuthenticationChallenge:challenge];
       }
     }
     else if (self.authHandler) {
@@ -989,7 +1079,7 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
   
-  NSUInteger size = [self.response expectedContentLength] < 0 ? 0 : [self.response expectedContentLength];
+  NSUInteger size = [self.response expectedContentLength] < 0 ? 0 : (NSUInteger)[self.response expectedContentLength];
   self.response = (NSHTTPURLResponse*) response;
   
   // dont' save data if the operation was created to download directly to a stream.
@@ -1053,7 +1143,8 @@
     // if there was a cacheControl entity, we would have a expiresOnDate that is not nil.
     // "Cache-Control" headers take precedence over "Expires" headers
     
-    expiresOn = [expiresOnDate rfc1123String];
+    if(expiresOnDate)
+      expiresOn = [expiresOnDate rfc1123String];
     
     // now remember lastModified, eTag and expires for this request in cache
     if(expiresOn)
@@ -1284,6 +1375,31 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
   return returnValue;
 }
 
+-(void) responseJSONWithCompletionHandler:(void (^)(id jsonObject)) jsonDecompressionHandler {
+  
+  if([self responseData] == nil) {
+    
+    jsonDecompressionHandler(nil);
+    return;
+  }
+  
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+    
+    NSError *error = nil;
+    id returnValue = [NSJSONSerialization JSONObjectWithData:[self responseData] options:0 error:&error];
+    if(error) {
+      
+      DLog(@"JSON Parsing Error: %@", error);
+      jsonDecompressionHandler(nil);
+      return;
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+      
+      jsonDecompressionHandler(returnValue);
+    });
+  });
+}
 #pragma mark -
 #pragma mark Overridable methods
 
@@ -1317,7 +1433,7 @@ totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite {
   DLog(@"%@, [%@]", self, [self.error localizedDescription]);
   for(MKNKErrorBlock errorBlock in self.errorBlocks)
     errorBlock(error);
-
+  
   for(MKNKResponseErrorBlock errorBlock in self.errorBlocksType2)
     errorBlock(self, error);
   

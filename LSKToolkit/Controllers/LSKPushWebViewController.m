@@ -8,7 +8,6 @@
 
 #import "LSKPushWebViewController.h"
 #import "NSURLRequest+Parameters.h"
-#import "VTPG_LogExpr.h"
 @interface LSKPushWebViewController ()
 
 @end
@@ -33,13 +32,11 @@
 {
     NSString *absolute_url_string = request.URL.absoluteString;
     NSString *scheme = request.URL.scheme;
-    NSString *path = request.URL.path;
-    NSString *host = request.URL.host;
-    NSString *method = request.HTTPMethod;
+//    NSString *path = request.URL.path;
+//    NSString *host = request.URL.host;
+//    NSString *method = request.HTTPMethod;
     NSDictionary *parameters = [request parameterDictionary];
     
-    LOG_NS(@"%@ : scheme : %@ \n host : %@ \n path : %@ \n absoluteString: %@ \n",method ,scheme,host,path, absolute_url_string);
-    LOG_EXPR(parameters);
     RequestShouldStartLoadingResult result = RequestShouldStartLoadingResultUndetermined;
     
     result = [self interceptRequest:request];

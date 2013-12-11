@@ -35,64 +35,79 @@
 }
 
 - (id)initWithPlaceholderImage:(UIImage*)anImage delegate:(id<EGOImageButtonDelegate>)aDelegate {
-	if((self = [super initWithFrame:CGRectZero])) {
+	if((self = [self initWithFrame:CGRectZero])) {
 		self.placeholderImage = anImage;
 		self.delegate = aDelegate;
-		[self setImage:self.placeholderImage forState:UIControlStateNormal];
+		[self setImage:placeholderImage forState:UIControlStateNormal];
 	}
 	
 	return self;
 }
 
+- (void)fetchImageAtUrlStr:(NSString*)urlStr{
+    if (urlStr && [urlStr isKindOfClass:[NSString class] ] && urlStr.length > 0) {
+        [self setImageURL:[NSURL URLWithString:urlStr]];
+    }
+}
+
 - (void)setImageURL:(NSURL *)aURL {
+    EGOImageLoader *sharedImageLoader = [EGOImageLoader sharedImageLoader];
 	if(imageURL) {
-		[[EGOImageLoader sharedImageLoader] removeObserver:self forURL:imageURL];
+		[sharedImageLoader removeObserver:self forURL:imageURL];
 		[imageURL release];
 		imageURL = nil;
 	}
 	
 	if(!aURL) {
-		[self setImage:self.placeholderImage forState:UIControlStateNormal];
+		[self setImage:placeholderImage forState:UIControlStateNormal];
 		imageURL = nil;
 		return;
 	} else {
 		imageURL = [aURL retain];
 	}
 	
-	UIImage* anImage = [[EGOImageLoader sharedImageLoader] imageForURL:aURL shouldLoadWithObserver:self];
+	UIImage* anImage = [sharedImageLoader imageForURL:aURL shouldLoadWithObserver:self];
 	
 	if(anImage) {
-		[self setImage:anImage forState:UIControlStateNormal];
+        [self displayImage:anImage];
 	} else {
-		[self setImage:self.placeholderImage forState:UIControlStateNormal];
+		[self setImage:placeholderImage forState:UIControlStateNormal];
 	}
 }
+
+- (void)displayImage:(UIImage*)anImage{
+    [self setImage:anImage forState:UIControlStateNormal];
+}
+
+
+
 
 #pragma mark -
 #pragma mark Image loading
 
 - (void)cancelImageLoad {
-	[[EGOImageLoader sharedImageLoader] cancelLoadForURL:self.imageURL];
-	[[EGOImageLoader sharedImageLoader] removeObserver:self forURL:self.imageURL];
+    EGOImageLoader *sharedImageLoader = [EGOImageLoader sharedImageLoader];
+	[sharedImageLoader cancelLoadForURL:imageURL];
+	[sharedImageLoader removeObserver:self forURL:imageURL];
 }
 
 - (void)imageLoaderDidLoad:(NSNotification*)notification {
-	if(![[[notification userInfo] objectForKey:@"imageURL"] isEqual:self.imageURL]) return;
+	if(![[[notification userInfo] objectForKey:@"imageURL"] isEqual:imageURL]) return;
 	
 	UIImage* anImage = [[notification userInfo] objectForKey:@"image"];
-	[self setImage:anImage forState:UIControlStateNormal];
+    [self displayImage:anImage];
 	[self setNeedsDisplay];
 	
-	if([self.delegate respondsToSelector:@selector(imageButtonLoadedImage:)]) {
-		[self.delegate imageButtonLoadedImage:self];
+	if([delegate respondsToSelector:@selector(imageButtonLoadedImage:)]) {
+		[delegate imageButtonLoadedImage:self];
 	}	
 }
 
 - (void)imageLoaderDidFailToLoad:(NSNotification*)notification {
-	if(![[[notification userInfo] objectForKey:@"imageURL"] isEqual:self.imageURL]) return;
+	if(![[[notification userInfo] objectForKey:@"imageURL"] isEqual:imageURL]) return;
 	
-	if([self.delegate respondsToSelector:@selector(imageButtonFailedToLoadImage:error:)]) {
-		[self.delegate imageButtonFailedToLoadImage:self error:[[notification userInfo] objectForKey:@"error"]];
+	if([delegate respondsToSelector:@selector(imageButtonFailedToLoadImage:error:)]) {
+		[delegate imageButtonFailedToLoadImage:self error:[[notification userInfo] objectForKey:@"error"]];
 	}
 }
 

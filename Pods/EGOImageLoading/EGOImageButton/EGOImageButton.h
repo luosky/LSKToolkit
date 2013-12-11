@@ -40,6 +40,9 @@
 
 - (void)cancelImageLoad;
 
+- (void)fetchImageAtUrlStr:(NSString*)urlStr;
+- (void)displayImage:(UIImage*)anImage;
+
 @property(nonatomic,retain) NSURL* imageURL;
 @property(nonatomic,retain) UIImage* placeholderImage;
 @property(nonatomic,assign) id<EGOImageButtonDelegate> delegate;

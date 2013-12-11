@@ -41,6 +41,7 @@
 		_responseData = [[NSMutableData alloc] init];
 		self.timeoutInterval = 30;
 		
+        _fileSize = -1;
 		#if __EGOIL_USE_BLOCKS
 		handlers = [[NSMutableDictionary alloc] init];
 		#endif
@@ -50,11 +51,13 @@
 }
 
 - (void)start {
-	NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:self.imageURL
-																cachePolicy:NSURLRequestReturnCacheDataElseLoad
-															timeoutInterval:self.timeoutInterval];
+	NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:_imageURL
+																cachePolicy:NSURLRequestReloadRevalidatingCacheData
+															timeoutInterval:_timeoutInterval];
 	[request setValue:@"gzip" forHTTPHeaderField:@"Accept-Encoding"];  
-	_connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+	_connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:NO];
+    [_connection scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    [_connection start];
 	[request release];
 }
 
@@ -69,27 +72,46 @@
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
 	if(connection != _connection) return;
 	[_responseData appendData:data];
+    
+    if (_fileSize && _fileSize >= 0
+        && [_delegate respondsToSelector:@selector(imageLoadConnectionNeedProgress:)]
+        && [_delegate respondsToSelector:@selector(imageLoadConnection:progress:)]){
+        
+        if ([_delegate imageLoadConnectionNeedProgress:self]) {
+            float progress = [_responseData length] / (float)_fileSize;
+            [_delegate imageLoadConnection:self progress:progress];
+        }
+    }
+
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
 	if(connection != _connection) return;
 	self.response = response;
+    if ([(NSHTTPURLResponse*)response statusCode] == 200) {
+        _fileSize = [response expectedContentLength];
+    }
+    
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	if(connection != _connection) return;
 
-	if([self.delegate respondsToSelector:@selector(imageLoadConnectionDidFinishLoading:)]) {
-		[self.delegate imageLoadConnectionDidFinishLoading:self];
+	if([_delegate respondsToSelector:@selector(imageLoadConnectionDidFinishLoading:)]) {
+		[_delegate imageLoadConnectionDidFinishLoading:self];
 	}
+    
+    _fileSize = -1;
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
 	if(connection != _connection) return;
 
-	if([self.delegate respondsToSelector:@selector(imageLoadConnection:didFailWithError:)]) {
-		[self.delegate imageLoadConnection:self didFailWithError:error];
+	if([_delegate respondsToSelector:@selector(imageLoadConnection:didFailWithError:)]) {
+		[_delegate imageLoadConnection:self didFailWithError:error];
 	}
+    
+    _fileSize = -1;
 }
 
 

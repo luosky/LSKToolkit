@@ -38,8 +38,12 @@
 - (id)initWithPlaceholderImage:(UIImage*)anImage; // delegate:nil
 - (id)initWithPlaceholderImage:(UIImage*)anImage delegate:(id<EGOImageViewDelegate>)aDelegate;
 
+- (void)fetchImageAtUrlStr:(NSString*)urlStr;
 - (void)cancelImageLoad;
 
+//exposed to be overridden
+- (void)displayImage:(UIImage*)anImage;
+    
 @property(nonatomic,retain) NSURL* imageURL;
 @property(nonatomic,retain) UIImage* placeholderImage;
 @property(nonatomic,assign) id<EGOImageViewDelegate> delegate;
@@ -47,6 +51,6 @@
 
 @protocol EGOImageViewDelegate<NSObject>
 @optional
-- (void)imageViewLoadedImage:(EGOImageView*)imageView;
+- (void)imageViewLoadedImage:(EGOImageView*)imageView loadedFromCache:(BOOL)loadedFromCache;
 - (void)imageViewFailedToLoadImage:(EGOImageView*)imageView error:(NSError*)error;
 @end

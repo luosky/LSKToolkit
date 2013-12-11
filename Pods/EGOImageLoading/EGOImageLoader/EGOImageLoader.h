@@ -25,6 +25,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 #ifndef __EGOIL_USE_BLOCKS
 #define __EGOIL_USE_BLOCKS 0
@@ -53,6 +54,7 @@
 #if __EGOIL_USE_NOTIF
 - (void)loadImageForURL:(NSURL*)aURL observer:(id<EGOImageLoaderObserver>)observer;
 - (UIImage*)imageForURL:(NSURL*)aURL shouldLoadWithObserver:(id<EGOImageLoaderObserver>)observer;
+- (void)preCacheImage:(UIImage*)image forURL:(NSURL*)aURL;
 
 - (void)removeObserver:(id<EGOImageLoaderObserver>)observer;
 - (void)removeObserver:(id<EGOImageLoaderObserver>)observer forURL:(NSURL*)aURL;
@@ -76,4 +78,6 @@
 @optional
 - (void)imageLoaderDidLoad:(NSNotification*)notification; // Object will be EGOImageLoader, userInfo will contain imageURL and image
 - (void)imageLoaderDidFailToLoad:(NSNotification*)notification; // Object will be EGOImageLoader, userInfo will contain error
+
+- (void)imageLoaderProgress:(NSNotification*)notification; // Object will be nil, userInfo will contain progress and imageURL
 @end
