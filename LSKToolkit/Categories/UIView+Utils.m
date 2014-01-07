@@ -7,6 +7,7 @@
 //
 
 #import "UIView+Utils.h"
+#import "LSKConstants.h"
 
 @implementation UIView (UIView_Utils)
 
@@ -110,10 +111,21 @@
 - (void) scaleWithConstrainedSize:(CGSize) constrainedSize miniHeight:(CGFloat) miniHeight {
     self.numberOfLines = 0;//显示所有行
     CGRect currentFrame = self.frame;
-    currentFrame.size.height = [self.text sizeWithFont:self.font constrainedToSize:constrainedSize lineBreakMode:self.lineBreakMode].height;
+    
+    CGSize size;
+    
+    if (!IS_NOT_BLANK_STR(self.text)) {
+        size = CGSizeMake(self.bounds.size.width, 0);// iOS7下空字符串算出来也有高度。。。
+    }else{
+        size = [self.text sizeWithFont:self.font constrainedToSize:constrainedSize lineBreakMode:self.lineBreakMode];
+    }
+    
+    currentFrame.size.height = ceilf(size.height);
+    
     if (CGRectGetHeight(currentFrame) < miniHeight) {
         currentFrame.size.height = miniHeight;
     }
+    
     self.frame = currentFrame;
 }
 

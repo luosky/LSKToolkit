@@ -21,5 +21,5 @@ Pod::Spec.new do |s|
   s.frameworks = 'MessageUI','MapKit','CoreLocation'
   s.dependency 'SVProgressHUD',       '0.6'
   s.dependency 'MBProgressHUD',       '~> 0.8'
-  
+  s.dependency 'MKNetworkKit',         '0.87'
 end
