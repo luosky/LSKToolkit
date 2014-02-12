@@ -13,6 +13,10 @@
 
 #define IS_NOT_BLANK_STR(str) (str && [str isKindOfClass:[NSString class]] && [str length] > 0)
 
+#define CURRENT_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+#define IS_BEFORE_IOS7 ( CURRENT_VERSION < 7.0)
+
+
 
 //for MKNetwork
 typedef void (^LSKArrayBlock)(NSArray* ary, BOOL isCache);
