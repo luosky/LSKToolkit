@@ -129,7 +129,6 @@
 {
     // Grab the hex value of the document's background color.
     NSString *rgbString = [self.webView stringByEvaluatingJavaScriptFromString:@"var style = getComputedStyle(document.body,''); style.getPropertyValue('background-color');"];
-    NSLog(@"rgbString : %@",rgbString);
     // Convert to a UIColor using helper method.
     UIColor *documentColor = [UIColor colorWithRGBString:rgbString];
     
