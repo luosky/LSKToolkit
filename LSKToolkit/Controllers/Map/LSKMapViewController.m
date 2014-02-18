@@ -36,6 +36,7 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
 		mapView =   [[MKMapView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+        mapView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 		[mapView setZoomEnabled:YES];
 		[mapView setScrollEnabled:YES];
 		mapView.showsUserLocation = YES;
@@ -182,7 +183,7 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
-	mapView.frame=self.view.frame;//根据放置的view自适应大小
+    //	mapView.frame=self.view.frame;//根据放置的view自适应大小
 }
 -(void) viewDidAppear:(BOOL)animated
 {
