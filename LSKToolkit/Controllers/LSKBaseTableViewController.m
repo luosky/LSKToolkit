@@ -142,11 +142,9 @@
 }
 
 
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[self.sectionDatas valueForKey:[self keyForSection:section] ] count] ;
+    return [(NSArray*)[self.sectionDatas valueForKey:[self keyForSection:section] ] count] ;
 }
-
 
 - (CGFloat)tableView:(UITableView *)t heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
