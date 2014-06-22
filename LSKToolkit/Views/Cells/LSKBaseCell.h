@@ -10,6 +10,8 @@
 
 @interface LSKBaseCell : UITableViewCell
 
+@property (nonatomic,strong) id entity;
+
 @property (nonatomic, assign) CGFloat cellHeight;
 
 @property (nonatomic,weak) UIViewController *viewController;

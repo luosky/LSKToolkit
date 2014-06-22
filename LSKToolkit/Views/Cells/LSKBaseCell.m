@@ -49,5 +49,6 @@
 
 - (void)updateWithEntity:(id)entity atIndexPath:(NSIndexPath*)indexPath{
     
+    self.entity = entity;
 }
 @end
